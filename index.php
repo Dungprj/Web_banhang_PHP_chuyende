@@ -62,14 +62,10 @@
 		$tam = '';
 	}
 
-	if($tam=='danhmuc'){
-		include('include/danhmuc.php');
-	}elseif($tam=='chitietsp'){
-		include('include/chitietsp.php');
-	}elseif($tam=='giohang') {
+	if($tam=='giohang') {
 		include('include/giohang.php');
-		
-	}elseif ($tam=='timkiem') {
+	}
+	elseif ($tam=='timkiem') {
 		include('include/timkiem.php');
 	}elseif ($tam=='tintuc') {
 		include('include/tintuc.php');
