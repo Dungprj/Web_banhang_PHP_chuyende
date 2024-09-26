@@ -1,16 +1,5 @@
 <?php
 
-if(isset($_REQUEST["signout"]))
-{
-	
-session_destroy();
-header("Location:index.php");
-
-
-
-}
-	// session_destroy();
-	// unset('dangnhap');
 	if(isset($_POST['dangnhap_home'])) {
 		$taikhoan = $_POST['email_login'];
 		$matkhau = md5($_POST['password_login']);
