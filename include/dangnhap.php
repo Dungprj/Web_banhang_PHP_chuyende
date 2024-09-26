@@ -24,6 +24,7 @@ header("Location:index.php");
 				$_SESSION['dangnhap_home'] = $row_dangnhap['name'];
 				$_SESSION['khachhang_id'] = $row_dangnhap['khachhang_id'];
 				
+				
 				header('Location: index.php');
 			}else{
 				echo '<script>alert("Tài khoản mật khẩu sai")</script>';

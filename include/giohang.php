@@ -274,7 +274,7 @@ if(!isset($_SESSION['khachhang_id']))
 							<td class="description"></td>
 							<td class="price">Giá</td>
 							<td class="quantity">Số lượng</td>
-							<td class="total">Giá tổng<</td>
+							<td class="total">Giá tổng</td>
 							<td></td>
 						</tr>
 					</thead>
@@ -285,8 +285,8 @@ if(!isset($_SESSION['khachhang_id']))
 						$i = 0;
 						$total = 0;
 						while($row_fetch_giohang = mysqli_fetch_array($sql_lay_giohang)){ 
-
-							$subtotal = $row_fetch_giohang['soluong'] * $row_fetch_giohang['giasanpham'];
+							// var_dump($row_fetch_giohang);
+							$subtotal = (int)$row_fetch_giohang['soluong'] *(int) $row_fetch_giohang['giasanpham'];
 							$total+=$subtotal;
 							$i++;
 							$tongTienGlobal = $total;
@@ -304,7 +304,7 @@ if(!isset($_SESSION['khachhang_id']))
                                 
 							</td>
 							<td class="cart_price">
-								<p><?php echo number_format($row_fetch_giohang['giasanpham']).'vnđ' ?></p>
+								<p><?php echo $row_fetch_giohang['giasanpham'].'vnđ' ?></p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
