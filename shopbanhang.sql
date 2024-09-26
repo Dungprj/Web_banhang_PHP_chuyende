@@ -401,17 +401,11 @@ CREATE TABLE `tbl_sanpham` (
 --
 
 INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham_chitiet`, `sanpham_mota`, `sanpham_gia`, `sanpham_giakhuyenmai`, `sanpham_active`, `sanpham_hot`, `sanpham_soluong`, `sanpham_image`) VALUES
-(17, 2, 'Tủ lạnh A10', 'dasdasdasadasd', 'dasdasddsadasds', '6000000', '5500000', 0, 0, 10, 'k2.jpg'),
-(18, 5, 'Tivi sony 29', 'asdasd', 'dasdasd', '5000000', '4500000', 0, 0, 1, 'm4.jpg'),
-(19, 5, 'Tivi sony 40', 'asdasd', 'dasdasd', '5600000', '4800000', 0, 0, 1, 'm4.jpg'),
-(20, 4, 'Galaxy A10', 'dasdad', 'dasdas', '15000000', '14000000', 0, 0, 10, 'mk2.jpg'),
-(21, 4, 'Galaxy A15', 'dasdad', 'dasdas', '15000000', '14000000', 0, 0, 10, 'mk3.jpg'),
-(22, 2, 'Tủ lạnh sony ', 'dasdad', 'dasdas', '75000000', '68000000', 0, 0, 5, 'k2.jpg'),
-(23, 2, 'Tủ lạnh Samsung', 'dasdaddasda', 'dasdasdasd', '105000000', '94000000', 0, 0, 10, 'k2.jpg'),
-(24, 1, 'Laptop Sony', 'sfsdf', 'adsf', '6000000', '5500000', 0, 0, 10, 'mk6.jpg'),
-(25, 1, 'Laptop A15', 'sfsdf', 'adsf', '6600000', '5300000', 0, 0, 10, 'mk6.jpg'),
-(26, 3, 'Máy giặc Samsung', 'dasdas', 'dsadas', '105000000', '99000000', 0, 0, 10, 'm8.jpg'),
-(27, 3, 'Máy giặc Shark', 'dasdas', 'dsadas', '75000000', '63000000', 0, 0, 10, 'm8.jpg');
+(1, 4, 'iPhone 15 Pro Max 256GB VN/A', '', '', '28390000', '28390000', 0, 0, 15, 'iphone_15prm.jpg'),
+(2, 4, 'Samsung Galaxy S24 Ultra', '', '', '24290000', '24290000', 0, 0, 20, 'samsung_s24_ultra.jpg'),
+(30, 4, 'iPhone 16 (256GB) - Chính hãng VN/A', '', '', '25990000', '25990000', 0, 0, 30, 'ip16-xanh-mong-ket.png');
+
+
 
 -- --------------------------------------------------------
 
