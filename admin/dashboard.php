@@ -40,6 +40,10 @@
 		  <li class="nav-item">
 	        <a class="nav-link" href="xulytikitdiscount.php">Vé giảm giá</a>
 	      </li>
+		  </li><li class="nav-item">
+	         <a class="nav-link" href="thongke.php">Thống kê</a>
+	      </li>
+
 	      
 	    </ul>
 	  </div>
