@@ -185,7 +185,7 @@ include "./db/connect.php";
 					<div class="login-form"><!-- form-->
 						<h2>thông tin tài khoản</h2>
 						<form action="#">
-							<input type="text" placeholder="Name" value="<?php echo $row_capnhat['name'] ?>" />
+							<input type="text" placeholder="Name"  readonly value="<?php echo $row_capnhat['name'] ?>" />
 							<input type="email" placeholder="Email Address" />
                             <input type="text " placeholder="Address"/>
 							<input type="password" placeholder="Password"/>
