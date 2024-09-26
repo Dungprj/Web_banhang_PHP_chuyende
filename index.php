@@ -33,7 +33,7 @@
 	
 	include('include/topbar.php'); 
 	include('include/menu.php');
-    include('include/slider.php');
+   
 	
 
 	if(isset($_GET['quanly'])){
@@ -57,6 +57,8 @@
 		include('include/chitiettin.php');
 	}elseif ($tam=='xemdonhang') {
 		include('include/xemdonhang.php');
+	}elseif ($tam=='taikhoan') {
+		include('include/account.php');
 	}
 	elseif ($tam=='dangnhap') {
 		include('include/dangnhap.php');

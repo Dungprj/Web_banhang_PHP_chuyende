@@ -41,7 +41,7 @@ if(isset($_REQUEST["signout"]))
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+							<a href="index.php"><img src="images/home/logo.png" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -70,10 +70,10 @@ if(isset($_REQUEST["signout"]))
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Tài Khoản</a></li>
+								<li><a href="index.php?quanly=taikhoan"><i class="fa fa-user"></i> Tài Khoản</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li><a href="index.php?quanly=giohang"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 								<li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
 							</ul>
 						</div>

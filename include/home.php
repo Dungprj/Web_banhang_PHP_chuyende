@@ -1,3 +1,7 @@
+<?php
+include('include/slider.php');
+
+?>
 <section>
 		<div class="container">
 			<div class="row">
