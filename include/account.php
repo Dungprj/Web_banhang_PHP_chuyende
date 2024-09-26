@@ -1,7 +1,7 @@
 <?php
 
-$khachhang_id = 12;
-include "./db/connect.php";
+$khachhang_id =  $_SESSION['khachhang_id'];;
+
 // kiểm tra xem 'khachhang_id' có tồn tại trong session
 // if(isset($_SESSION['khachhang_id']))
 // {
