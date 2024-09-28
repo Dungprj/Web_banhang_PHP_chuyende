@@ -25,14 +25,26 @@
 										<li><a href="login.html">Đăng nhập</a></li> 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Bài viết<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown">
+                                    <a href="#">Tin tức <i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Kiến thức Tivi</a></li>
-										<li><a href="blog-single.html">Kiến thức Laptop</a></li>
-										<li><a href="blog-single.html">Kiến thức Máy giặt</a></li>
-										<li><a href="blog-single.html">Kiến thức Tủ lạnh</a></li>
-                                    </ul>
-                                </li> 
+                                        <?php
+                                        // Lấy danh sách danh mục tin tức từ cơ sở dữ liệu
+                                        $sql_danhmuctin = mysqli_query($con, "SELECT * FROM tbl_danhmuc_tin ORDER BY danhmuctin_id DESC");
+
+                                        // Lặp qua kết quả và hiển thị các danh mục
+                                        while ($danhmuc = mysqli_fetch_array($sql_danhmuctin)) {
+                                        ?>
+                                           <li>
+                                               <a class="dropdown-item" href="?quanly=tintuc&id_tin=<?= $danhmuc['danhmuctin_id'] ?>">
+                                                   <?= $danhmuc['tendanhmuc'] ?>
+                                               </a>
+                                           </li>
+                                       <?php } ?>
+                                   </ul>
+                              </li>
+
+
 								<!-- <li><a href="404.html">404</a></li> -->
 								<li><a href="contact-us.html">Liên hệ</a></li>
 							</ul>

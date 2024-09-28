@@ -17,6 +17,7 @@
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
