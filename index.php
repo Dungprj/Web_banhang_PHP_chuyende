@@ -46,7 +46,7 @@
 	if($tam=='danhmuc'){
 		include('include/danhmuc.php');
 	}elseif($tam=='chitietsp'){
-		include('include/chitietsp.php');
+		include('include/product_detail.php');
 	}elseif($tam=='giohang') {
 		include('include/giohang.php');
 		
