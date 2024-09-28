@@ -62,6 +62,9 @@
 	}
 	elseif ($tam=='dangnhap') {
 		include('include/dangnhap.php');
+	}
+	elseif ($tam=='dangky'){
+		include('include/dangky.php');
 	}else{
 		include('include/home.php'); 
 	}
