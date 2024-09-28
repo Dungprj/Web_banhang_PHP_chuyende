@@ -41,7 +41,8 @@
 			?>
 			<div class="row">
 				<div class="col-lg-4 welcome-right-top mt-lg-0 mt-sm-5 mt-4">
-					<img src="images/<?php echo $row_baiviet['baiviet_image'] ?>" class="img-fluid" alt=" ">
+				<img src="images/<?php echo $row_baiviet['baiviet_image'] ?>" class="img-fluid" alt=" " width="144px" height="200px">
+
 				</div>
 				<div class="col-lg-8 welcome-left">
 					<h5><a href="index.php?quanly=chitiettin&id_tin=<?php echo $row_baiviet['baiviet_id'] ?>"><?php echo $row_baiviet['tenbaiviet'] ?></a></h5>

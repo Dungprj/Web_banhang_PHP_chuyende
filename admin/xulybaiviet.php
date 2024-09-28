@@ -8,7 +8,7 @@
 		$danhmuc = $_POST['danhmuc'];
 		$chitiet = $_POST['chitiet'];
 		$mota = $_POST['mota'];
-		$path = '../uploads/';
+		$path = '../images/';
 		
 		$hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
 		$sql_insert_product = mysqli_query($con,"INSERT INTO tbl_baiviet(tenbaiviet,tomtat,noidung,danhmuctin_id,baiviet_image) values ('$tenbaiviet','$mota','$chitiet','$danhmuc','$hinhanh')");
@@ -22,7 +22,7 @@
 		$danhmuc = $_POST['danhmuc'];
 		$chitiet = $_POST['chitiet'];
 		$mota = $_POST['mota'];
-		$path = '../uploads/';
+		$path = '../shop/';
 		if($hinhanh==''){
 			$sql_update_image = "UPDATE tbl_baiviet SET tenbaiviet='$tenbaiviet',noidung='$chitiet',tomtat='$mota',danhmuctin_id='$danhmuc' WHERE baiviet_id='$id_update'";
 		}else{
@@ -67,7 +67,8 @@
 					<input type="hidden" class="form-control" name="id_update" value="<?php echo $row_capnhat['baiviet_id'] ?>">
 					<label>Hình ảnh</label>
 					<input type="file" class="form-control" name="hinhanh"><br>
-					<img src="../uploads/<?php echo $row_capnhat['baiviet_image'] ?>" height="80" width="80"><br>
+					<img src="../uploads/<?php echo $row_capnhat['baiviet_image'] ?>" style="width: 144px; height: 200px;"><br>
+
 					
 				
 					<label>Mô tả</label>
@@ -157,7 +158,8 @@
 					<tr>
 						<td><?php echo $i ?></td>
 						<td><?php echo $row_bv['tenbaiviet'] ?></td>
-						<td><img src="../uploads/<?php echo $row_bv['baiviet_image'] ?>" height="100" width="80"></td>
+						<td><img src="../uploads/<?php echo $row_bv['baiviet_image'] ?>" style="width: 144px; height: 200px;"></td>
+
 
 						<td><?php echo $row_bv['tendanhmuc'] ?></td>
 						
