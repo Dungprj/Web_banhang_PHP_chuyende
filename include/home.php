@@ -1,148 +1,53 @@
 <?php
 include('include/slider.php');
-if (isset($_GET['id'])) {
-	$id = $_GET['id'];
-} else {
-	$id = '';
-}
+
+$sql_category_danhmuc = mysqli_query($con,'SELECT * FROM tbl_category ORDER BY category_id DESC');
 $sql_list = mysqli_query($con, "SELECT * FROM `tbl_sanpham` ORDER BY `sanpham_id` ASC;");
+
 ?>
 <section>
       <div class="container">
         <div class="row">
           <div class="col-sm-3">
             <div class="left-sidebar">
-              <h2>Danh mục sản phẩm</h2>
-              <div class="panel-group category-products" id="accordian">
-                <!--category-productsr-->
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        data-toggle="collapse"
-                        data-parent="#accordian"
-                        href="#tivi"
-                      >
-                        <span class="badge pull-right"
-                          ><i class="fa fa-plus"></i
-                        ></span>
-                        Tivi
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="tivi" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <ul>
-                        <li><a href="">Sony</a></li>
-                        <li><a href="">Samsung</a></li>
-                        <li><a href="">LG</a></li>
-                      </ul>
+              <h2>Danh Mục</h2>
+                <div class="panel-group category-products" id="accordian">
+                  <!--category-productsr-->
+                  <?php
+                  while($row_category_danhmuc = mysqli_fetch_array($sql_category_danhmuc)){
+                  ?>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="?quanly=danhmuc&id=<?php echo $row_category_danhmuc['category_id'] ?>" role="button"  aria-haspopup="true" aria-expanded="false">
+                        <?php echo $row_category_danhmuc['category_name'] ?></a></h4>
                     </div>
                   </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        data-toggle="collapse"
-                        data-parent="#accordian"
-                        href="#dienthoai"
-                      >
-                        <span class="badge pull-right"
-                          ><i class="fa fa-plus"></i
-                        ></span>
-                        Điện thoại
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="dienthoai" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <ul>
-                        <li><a href="">Iphone (Apple)</a></li>
-                        <li><a href="">Samsung</a></li>
-                        <li><a href="">Xiaomi</a></li>
-                      </ul>
+                  <?php
+                  }
+                  ?>
+                  <!-- <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title"><a href="#">Điện thoại</a></h4>
                     </div>
                   </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        data-toggle="collapse"
-                        data-parent="#accordian"
-                        href="#maygiat"
-                      >
-                        <span class="badge pull-right"
-                          ><i class="fa fa-plus"></i
-                        ></span>
-                        Máy giặt
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="maygiat" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <ul>
-                        <li><a href="">Toshiba</a></li>
-                        <li><a href="">Aqua</a></li>
-                        <li><a href="">Panasonic</a></li>
-                      </ul>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title"><a href="#">Máy giặt</a></h4>
                     </div>
                   </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        data-toggle="collapse"
-                        data-parent="#accordian"
-                        href="#tulanh"
-                      >
-                        <span class="badge pull-right"
-                          ><i class="fa fa-plus"></i
-                        ></span>
-                        tủ lạnh
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="tulanh" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <ul>
-                        <li><a href="">Toshiba</a></li>
-                        <li><a href="">Samsung</a></li>
-                        <li><a href="">Panasonic</a></li>
-                      </ul>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title"><a href="#">Tủ lạnh</a></h4>
                     </div>
                   </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        data-toggle="collapse"
-                        data-parent="#accordian"
-                        href="#laptop"
-                      >
-                        <span class="badge pull-right"
-                          ><i class="fa fa-plus"></i
-                        ></span>
-                        Laptop
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="laptop" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <ul>
-                        <li><a href="">Apple</a></li>
-                        <li><a href="">Lenovo</a></li>
-                        <li><a href="">Dell</a></li>
-                        <li><a href="">Asus</a></li>
-                      </ul>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title"><a href="#">Laptop</a></h4>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <!--/category-products-->
+                  </div> -->
+							
+						    </div><!--/category-products-->
 
               <div class="brands_products">
                 <!--brands_products-->
@@ -212,6 +117,7 @@ $sql_list = mysqli_query($con, "SELECT * FROM `tbl_sanpham` ORDER BY `sanpham_id
             </div>
           </div>
 				
+	
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">SẢN PHẨM NỔI BẬT</h2>
