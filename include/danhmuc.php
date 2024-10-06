@@ -197,7 +197,7 @@
 					<div class="product-image-wrapper">
 						<div class="single-products">
 							<div class="productinfo text-center">
-								<img src="images/shop/<?php echo $row['sanpham_image'] ?>" alt="" />
+								<img src="images/<?php echo $row['sanpham_image'] ?>" alt="" />
 								<h2><?php echo number_format($row['sanpham_giakhuyenmai']) . 'đ'; ?></h2>
 								<p><?php echo $row['sanpham_name']; ?></p>
 								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
