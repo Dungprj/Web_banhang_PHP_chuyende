@@ -79,8 +79,8 @@ if(isset($_POST["logout"]))
 								?>
 								
 								
-								<li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+							
+								
 								<li><a href="index.php?quanly=giohang"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 								<?php if(!isset($_SESSION['dangnhap_home'])){
 									?>
