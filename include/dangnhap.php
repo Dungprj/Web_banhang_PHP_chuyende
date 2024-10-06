@@ -1,14 +1,5 @@
 <?php
 
-if(isset($_REQUEST["signout"]))
-{
-	
-session_destroy();
-header("Location:index.php");
-
-
-
-}
 	// session_destroy();
 	// unset('dangnhap');
 	if(isset($_POST['dangnhap_home'])) {
@@ -24,28 +15,14 @@ header("Location:index.php");
 				$_SESSION['dangnhap_home'] = $row_dangnhap['name'];
 				$_SESSION['khachhang_id'] = $row_dangnhap['khachhang_id'];
 				
-				
-				header('Location: index.php');
+				echo '<script>
+        alert("Đăng nhập thành công");
+        window.location.href = "index.php";
+    </script>';
 			}else{
 				echo '<script>alert("Tài khoản mật khẩu sai")</script>';
 			}
 		}
-	}elseif(isset($_POST['dangky'])){
-		$name = $_POST['name'];
-	 	$phone = $_POST['phone'];
-	 	$email = $_POST['email'];
-	 	$password = md5($_POST['password']);
-	 	$note = $_POST['note'];
-	 	$address = $_POST['address'];
-	 	$giaohang = $_POST['giaohang'];
- 
- 		$sql_khachhang = mysqli_query($con,"INSERT INTO tbl_khachhang(name,phone,email,address,note,giaohang,password) values ('$name','$phone','$email','$address','$note','$giaohang','$password')");
- 		$sql_select_khachhang = mysqli_query($con,"SELECT * FROM tbl_khachhang ORDER BY khachhang_id DESC LIMIT 1");
- 		$row_khachhang = mysqli_fetch_array($sql_select_khachhang);
- 		$_SESSION['dangnhap_home'] = $name;
-		$_SESSION['khachhang_id'] = $row_khachhang['khachhang_id'];
-		
-		
 	}
 ?> 
 <html>
@@ -55,8 +32,8 @@ header("Location:index.php");
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
-						<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+						<h2>XIN MỜI ĐĂNG NHẬP!</h2>
+						<form action="" method="post">
 							<div class="form-group">
 								<label class="col-form-label">Email</label>
 								<input type="text" class="form-control" placeholder=" " name="email_login" required="">
@@ -68,48 +45,14 @@ header("Location:index.php");
 							<div class="right-w3l">
 								<button type="submit" class="form-control" name="dangnhap_home">Đăng nhập</button>
 							</div>
+							<div class="sign_in">
+                            Bạn chưa có tài khoản? <a href="index.php?quanly=dangky">Đăng ký</a>
+                        	</div>
 						</form>
 					</div><!--/login form-->
 				</div>
-				<div class="col-sm-1">
-					<h2 class="or">OR</h2>
-				</div>
-				<div class="col-sm-4">
-					<div class="signup-form"><!--sign up form-->
-						<h2>New User Signup!</h2>
-						<form action="" method="post">
-						<div class="form-group">
-							<label class="col-form-label">Tên khách hàng</label>
-							<input type="text" class="form-control" placeholder=" " name="name" required="">
-						</div>
-						<div class="form-group">
-							<label class="col-form-label">Email</label>
-							<input type="email" class="form-control" placeholder=" " name="email" required="">
-						</div>
-						<div class="form-group">
-							<label class="col-form-label">Phone</label>
-							<input type="text" class="form-control" placeholder=" " name="phone"  required="">
-						</div>
-						<div class="form-group">
-							<label class="col-form-label">Address</label>
-							<input type="text" class="form-control" placeholder=" " name="address"  required="">
-						</div>
-						<div class="form-group">
-							<label class="col-form-label">Password</label>
-							<input type="password" class="form-control" placeholder=" " name="password"  required="">
-							<input type="hidden" class="form-control" placeholder="" name="giaohang"  value="0">
-						</div>
-						<div class="form-group">
-							<label class="col-form-label">Ghi chú</label>
-							<textarea class="form-control" name="note"></textarea>
-						</div>
-						
-						<div class="right-w3l">
-							<button type="submit" class="form-control" name="dangky">Đăng ký</button>
-						</div>
-						</form>
-					</div><!--/sign up form-->
-				</div>
+			
+				
 			</div>
 		</div>
 	</section><!--/form-->
