@@ -46,7 +46,7 @@
 
 
 								<!-- <li><a href="404.html">404</a></li> -->
-								<li><a href="contact-us.html">Liên hệ</a></li>
+								<li><a href="index.php?quanly=lienhe">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>

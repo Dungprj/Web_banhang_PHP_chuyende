@@ -28,6 +28,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+		<!-- Google Fonts -->
+		<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 </head><!--/head-->
  <body>
  <?php
@@ -49,6 +53,9 @@
 		include('include/product_detail.php');
 	}elseif($tam=='giohang') {
 		include('include/giohang.php');
+		
+	}elseif($tam=='lienhe') {
+		include('contact.html');
 		
 	}elseif ($tam=='timkiem') {
 		include('include/timkiem.php');
