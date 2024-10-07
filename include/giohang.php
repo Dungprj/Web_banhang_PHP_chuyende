@@ -271,7 +271,7 @@ if(!isset($_SESSION['khachhang_id']))
 					<thead>
 						<tr class="cart_menu">
 							<td class="image">Sản phẩm</td>
-							<td class="description"></td>
+							<td colspan="3" class="description">Tên</td>
 							<td class="price">Giá</td>
 							<td class="quantity">Số lượng</td>
 							<td class="total">Giá tổng</td>
@@ -295,11 +295,12 @@ if(!isset($_SESSION['khachhang_id']))
 						?>
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/<?php echo $row_fetch_giohang['hinhanh'] ?>" alt=""></a>
+								<a href=""><img src="uploads/<?php echo $row_fetch_giohang['hinhanh'] ?>" style="width:100%; max-width:150px; " alt=""></a>
 							</td>
-							<td class="cart_description">
+						
+							<td colspan="3" class="cart_description">
                                 <input type="hidden" name="product_id[]" value="<?php echo $row_fetch_giohang['sanpham_id'] ?>">
-                                <p><?php echo $row_fetch_giohang['tensanpham'] ?></p>
+                                <p style="padding-left:5%;"><?php echo $row_fetch_giohang['tensanpham'] ?></p>
                             </td>
                                 
 							</td>
@@ -328,17 +329,17 @@ if(!isset($_SESSION['khachhang_id']))
 							} 
 							?>
 							<tr>
-								<td colspan="5" style="text-align: right;">Voucher: </td>
-								<td><p id="open" style="color:blue; cursor:pointer;">Chọn mã giảm giá</p></td>
+								<td colspan="6" style="text-align: right;">Voucher: </td>
+								<td><p id="open" style="color:orange; cursor:pointer;">Chọn mã giảm giá</p></td>
 							</tr>
 							
 							<tr>
-								<td colspan="6" style="text-align: right;">Tổng tiền : <?php echo number_format($total).' vnđ' ?></td>
+								<td colspan="7" style="text-align: right;">Tổng tiền : <?php echo number_format($total).' vnđ' ?></td>
 
 							</tr>
 							<tr>
 								
-								<td colspan="5" style="text-align: right;">
+								<td colspan="6" style="text-align: right;">
 								<?php 
 								
 								if($isapply_voucher!= null && $isSuccess_Applyvoucher == false)
@@ -354,11 +355,11 @@ if(!isset($_SESSION['khachhang_id']))
 								?> 
 								</td>
 
-								<td colspan="5" style="text-align: right;"> -- <?php echo number_format($sotiengiam).' vnđ' ?></td>
+								<td colspan="1" style="text-align: right;"> -- <?php echo number_format($sotiengiam).' vnđ' ?></td>
 
 							</tr>
 							<tr>
-								<td colspan="6" style="text-align: right;">Thành tiền : <?php echo number_format($thanhtien-$sotiengiam).' vnđ'  ?></td>
+								<td colspan="7" style="text-align: right;">Thành tiền : <?php echo number_format($thanhtien-$sotiengiam).' vnđ'  ?></td>
 
 							</tr>
 							<tr>
@@ -531,82 +532,7 @@ document.querySelectorAll('.cart_quantity_down').forEach(function(button) {
 	</section> <!--/#cart_items-->
 
 
-	<section id="do_action">
-		<div class="container">
-			<div class="heading">
-				<h3>What would you like to do next?</h3>
-				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="chose_area">
-						<ul class="user_option">
-							<li>
-								<input type="checkbox">
-								<label>Use Coupon Code</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Use Gift Voucher</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Estimate Shipping & Taxes</label>
-							</li>
-						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
-								<select>
-									<option>United States</option>
-									<option>Bangladesh</option>
-									<option>UK</option>
-									<option>India</option>
-									<option>Pakistan</option>
-									<option>Ucrane</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-								
-							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
-								<select>
-									<option>Select</option>
-									<option>Dhaka</option>
-									<option>London</option>
-									<option>Dillih</option>
-									<option>Lahore</option>
-									<option>Alaska</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-							
-							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text">
-							</li>
-						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="total_area">
-						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
-						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section><!--/#do_action-->
+
 
 
 
