@@ -1,7 +1,7 @@
 <?php
 	include('../db/connect.php');
-?>
-<?php
+
+
 	if(isset($_POST['themsanpham'])){
 	
 		$tensanpham = $_POST['tensanpham'];
@@ -37,10 +37,10 @@
 			echo "Sản phẩm đã được thêm thành công với ID: " . $sanpham_id;
 
 
-		$sql_insert_image_mota_1_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$sanpham_id ','$anhmota_1')");
-		$sql_insert_image_mota_2_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$sanpham_id ','$anhmota_2')");
-		$sql_insert_image_mota_3_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$sanpham_id ','$anhmota_3')");
-		$sql_insert_image_mota_4_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$sanpham_id ','$anhmota_4')");
+		$sql_insert_image_mota_1_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url,thutu) values ('$sanpham_id ','$anhmota_1','1')");
+		$sql_insert_image_mota_2_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url,thutu) values ('$sanpham_id ','$anhmota_2','2')");
+		$sql_insert_image_mota_3_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url,thutu) values ('$sanpham_id ','$anhmota_3','3')");
+		$sql_insert_image_mota_4_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url,thutu) values ('$sanpham_id ','$anhmota_4','4')");
 		
 		
 
@@ -58,117 +58,84 @@
 		
 
 
-	}elseif(isset($_POST['capnhatsanpham'])) {
-
-		// $sanpham_id = $_POST['sanpham_id'];
-		$id_update = $_POST['id_update'];
-		$tensanpham = $_POST['tensanpham'];
-		$hinhanh = $_FILES['hinhanh']['name'];
-
-		$anhmota_1 = "";
-		$anhmota_2 = "";
-		$anhmota_3 = "";
-		$anhmota_4 = "";
-
-		$hinhanh_mota_1_tmp = "";
-		$hinhanh_mota_2_tmp = "";
-		$hinhanh_mota_3_tmp = "";
-		$hinhanh_mota_4_tmp = "";
-
-
-
-		if( isset($_FILES['hinhanhmota1']))
-		{
-			$anhmota_1 =  $_FILES['hinhanhmota1']['name'];
-			$hinhanh_mota_1_tmp = $_FILES['hinhanhmota1']['tmp_name'];
-		}
-		if( isset($_FILES['hinhanhmota2']))
-		{
-			$anhmota_2 =  $_FILES['hinhanhmota2']['name'];
-			$hinhanh_mota_2_tmp = $_FILES['hinhanhmota2']['tmp_name'];
-
-		}
-		if(isset($_FILES['hinhanhmota3']))
-		{
-			$anhmota_3 =  $_FILES['hinhanhmota3']['name'];
-			$hinhanh_mota_3_tmp = $_FILES['hinhanhmota3']['tmp_name'];
-
-		}
-		if(isset($_FILES['hinhanhmota4']))
-		{
-			$anhmota_4=  $_FILES['hinhanhmota4']['name'];
-			$hinhanh_mota_4_tmp = $_FILES['hinhanhmota4']['tmp_name'];
-
-			
-		}
-		
-		
-
-		
-
-		$hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
-
-		
-
-		$soluong = $_POST['soluong'];
-		$gia = $_POST['giasanpham'];
-		$giakhuyenmai = $_POST['giakhuyenmai'];
-		$danhmuc = $_POST['danhmuc'];
-		$chitiet = $_POST['chitiet'];
-		$mota = $_POST['mota'];
-		$path = '../uploads/';
-		if($hinhanh==''){
-			$sql_update_image = "UPDATE tbl_sanpham SET sanpham_name='$tensanpham',sanpham_chitiet='$chitiet',sanpham_mota='$mota',sanpham_gia='$gia',sanpham_giakhuyenmai='$giakhuyenmai',sanpham_soluong='$soluong',category_id='$danhmuc' WHERE sanpham_id='$id_update'";
-			
-
-			$sql_xoa_list_img_mota = mysqli_query($con,"DELETE FROM tbl_sanpham_images WHERE sanpham_id='$id_update'");
-			move_uploaded_file($hinhanh_mota_1_tmp,$path.$anhmota_1);
-			$sql_insert_image_mota_1_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$id_update ','$anhmota_1')");
-
-
-
-		}else if($hinhanh != "" ||$anhmota_1 !="" || $anhmota_2 !="" || $anhmota_3 !="" ||$anhmota_4 !=""){
-			
-			$sql_xoa_list_img_mota = mysqli_query($con,"DELETE FROM tbl_sanpham_images WHERE sanpham_id='$id_update'");
-			
-			move_uploaded_file($hinhanh_tmp,$path.$hinhanh);
-
-		
-			
-				move_uploaded_file($hinhanh_mota_1_tmp,$path.$anhmota_1);
-			$sql_insert_image_mota_1_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$id_update ','$anhmota_1')");
-
-
-			
-			
-				move_uploaded_file($hinhanh_mota_2_tmp,$path.$anhmota_2);
-				$sql_insert_image_mota_2_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$id_update ','$anhmota_2')");
-	
-			
-			
-				move_uploaded_file($hinhanh_mota_3_tmp,$path.$anhmota_3);
-				$sql_insert_image_mota_3_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$id_update ','$anhmota_3')");
-
-			
-			
-				move_uploaded_file($hinhanh_mota_4_tmp,$path.$anhmota_4);
-				$sql_insert_image_mota_4_product = mysqli_query($con,"INSERT INTO tbl_sanpham_images(sanpham_id,image_url) values ('$id_update ','$anhmota_4')");
-
-			
-
-		
-
-			
-			$sql_update_image = "UPDATE tbl_sanpham SET sanpham_name='$tensanpham',sanpham_chitiet='$chitiet',sanpham_mota='$mota',sanpham_gia='$gia',sanpham_giakhuyenmai='$giakhuyenmai',sanpham_soluong='$soluong',sanpham_image='$hinhanh',category_id='$danhmuc' WHERE sanpham_id='$id_update'";
-			
-			
-
-
-			
-			
-		}
-		mysqli_query($con,$sql_update_image);
 	}
+
+	
+if (isset($_POST['capnhatsanpham'])) {
+    $id_update = $_POST['id_update'];
+    $tensanpham = $_POST['tensanpham'];
+    $hinhanh = $_FILES['hinhanh']['name'];
+    
+    $soluong = $_POST['soluong'];
+    $gia = $_POST['giasanpham'];
+    $giakhuyenmai = $_POST['giakhuyenmai'];
+    $danhmuc = $_POST['danhmuc'];
+    $chitiet = $_POST['chitiet'];
+    $mota = $_POST['mota'];
+    $path = '../uploads/';
+
+    // Cập nhật ảnh mô tả nếu có
+    foreach (range(1, 4) as $index) {
+		
+		
+        $input_name = 'hinhanhmota' . $index;
+		echo "vao $input_name ";
+        if (isset($_FILES[$input_name]['name']) && $_FILES[$input_name]['name'] != "") {
+
+			echo "vao $index ";
+            $anhmota = $_FILES[$input_name]['name'];
+            $hinhanh_mota_tmp = $_FILES[$input_name]['tmp_name'];
+            move_uploaded_file($hinhanh_mota_tmp, $path . $anhmota);
+            mysqli_query($con, "UPDATE tbl_sanpham_images SET image_url='$anhmota' WHERE sanpham_id='$id_update' AND thutu='$index' ");
+        }
+    }
+
+    // Cập nhật ảnh chính nếu có upload
+    if ($hinhanh != '') {
+        move_uploaded_file($_FILES['hinhanh']['tmp_name'], $path . $hinhanh);
+        $sql_update = "UPDATE tbl_sanpham SET 
+            sanpham_name='$tensanpham', 
+            sanpham_chitiet='$chitiet',
+            sanpham_mota='$mota', 
+            sanpham_gia='$gia', 
+            sanpham_giakhuyenmai='$giakhuyenmai',
+            sanpham_soluong='$soluong',
+            sanpham_image='$hinhanh', 
+            category_id='$danhmuc' 
+            WHERE sanpham_id='$id_update'";
+    } else {
+        // Không thay đổi ảnh chính
+        $sql_update = "UPDATE tbl_sanpham SET 
+            sanpham_name='$tensanpham', 
+            sanpham_chitiet='$chitiet',
+            sanpham_mota='$mota', 
+            sanpham_gia='$gia', 
+            sanpham_giakhuyenmai='$giakhuyenmai',
+            sanpham_soluong='$soluong', 
+            category_id='$danhmuc' 
+            WHERE sanpham_id='$id_update'";
+    }
+
+    // Thực thi truy vấn cập nhật
+    if (mysqli_query($con, $sql_update)) {
+        echo "Cập nhật sản phẩm thành công!";
+    } else {
+        echo "Có lỗi khi cập nhật sản phẩm: " . mysqli_error($con);
+    }
+}
+?>
+
+
+
+
+	
+
+
+	
+	
+
+
+
 	
 ?> 
 <?php
@@ -232,7 +199,7 @@
 							<label>Hình ảnh mô tả <?php echo $index+1; ?></label>
 							<br>
 							<img src="../uploads/<?php echo $image; ?>" height="100" width="80" style="margin-right: 5px;">
-							<input type="file" class="form-control" name="hinhanhmota<?php echo $index; ?>"><br>
+							<input type="file" class="form-control" name="hinhanhmota<?php echo $index+1; ?>"><br>
 							<br>
 						<?php endforeach; ?>
 

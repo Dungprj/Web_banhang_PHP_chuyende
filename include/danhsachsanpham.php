@@ -14,7 +14,7 @@
                         alt="<?php echo htmlspecialchars($product['sanpham_name']); ?>" />
                     <h2><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?> VNĐ</h2>
                     <p><?php echo $product['sanpham_name']; ?></p>
-                    <form action="?quanly=giohang" method="post">
+                    <form action="index.php?quanly=giohang" method="post">
                         <fieldset>
                             <input type="hidden" name="tensanpham" value="<?php echo $product['sanpham_name'] ?>" />
                             <input type="hidden" name="sanpham_id" value="<?php echo $product['sanpham_id'] ?>" />
