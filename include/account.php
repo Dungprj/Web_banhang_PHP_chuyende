@@ -33,29 +33,21 @@ $khachhang_id =  $_SESSION['khachhang_id'];
 			$sql_select_khachhang = mysqli_query($con,"SELECT * FROM tbl_khachhang WHERE khachhang_id = '$khachhang_id'");
 			$row_capnhat = mysqli_fetch_array($sql_select_khachhang);// lưu kết quả đã cập nhập
 			?>
-	<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!-- form-->
-						<h2>thông tin tài khoản</h2>
-						<form action="#">
-							<input type="text" placeholder="Name" value="<?php echo $row_capnhat['name'] ?>" />
-							<input type="email" placeholder="Email Address" value="<?php echo $row_capnhat['email'] ?>" />
-                            <input type="text " placeholder="Address" value="<?php echo $row_capnhat['address'] ?>"/>
-							<input type="password" placeholder="Password" value="<?php echo $row_capnhat['password'] ?>"/>
-                            <input type="text" placeholder="note" value="<?php echo $row_capnhat['note'] ?>"/>
-							<span>
-								<input type="checkbox" class="checkbox"> 
-								Keep me signed in
-							</span>
-							<button type="submit" class="btn btn-default">Update</button>
-						</form>
-					</div><!--/ form-->
-				</div>
-			</div>
-		</div>
-	</section><!--/form-->
-	
-	
+<div class="col-sm-9 col-sm-offset-1" id="form">
+	<div class="login-form"><!-- form-->
+		<h2>thông tin tài khoản</h2>
+		<form action="#">
+			<input type="text" placeholder="Name" value="<?php echo $row_capnhat['name'] ?>" />
+			<input type="email" placeholder="Email Address" value="<?php echo $row_capnhat['email'] ?>" />
+			<input type="text " placeholder="Address" value="<?php echo $row_capnhat['address'] ?>"/>
+			<input type="password" placeholder="Password" value="<?php echo $row_capnhat['password'] ?>"/>
+			<input type="text" placeholder="note" value="<?php echo $row_capnhat['note'] ?>"/>
+			<span>
+				<input type="checkbox" class="checkbox"> 
+				Keep me signed in
+			</span>
+			<button type="submit" class="btn btn-default">Update</button>
+		</form>
+	</div><!--/ form-->
+</div>
 

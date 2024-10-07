@@ -18,6 +18,8 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/product_p_p.css" rel="stylesheet">
+	
 	<!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -38,9 +40,19 @@
 	
 	include('include/topbar.php'); 
 	include('include/menu.php');
-   
-	
+  
+?>
 
+<div class="container">
+        <div class="row">
+       
+
+
+
+
+<?php
+	
+	
 	if(isset($_GET['quanly'])){
 		$tam = $_GET['quanly'];
 	}else{
@@ -48,16 +60,26 @@
 	}
 
 	if($tam=='danhmuc'){
+		include "include/_partialpanellert.php";
 		include('include/danhmuc.php');
+	}
+	elseif($tam=='hang'){
+		
+			include "include/_partialpanellert.php";
+			include('include/hang.php');
 	}elseif($tam=='chitietsp'){
+		include "include/_partialpanellert.php";
 		include('include/product_detail.php');
 	}elseif($tam=='giohang') {
+		
 		include('include/giohang.php');
 		
 	}elseif($tam=='lienhe') {
+
 		include('contact.html');
 		
 	}elseif ($tam=='timkiem') {
+		include "include/_partialpanellert.php";
 		include('include/timkiem.php');
 	}elseif ($tam=='tintuc') {
 		include('include/tintuc.php');
@@ -70,17 +92,36 @@
 	}
 	elseif ($tam=='dangnhap') {
 		include('include/dangnhap.php');
+	}elseif ($tam=='dangky') {
+		include('include/dangky.php');
 	}else{
+		include "include/slider.php";
+		include "include/_partialpanellert.php";
 		include('include/home.php'); 
 	}
 	 
+	
+	?>
+
+	
+    
+</div>	
+
+</div>	
+<?php
 	include('include/footer.php'); 
 	?>
-    <script src="js/jquery.js"></script>
+ </body>
+ 
+ <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
- </body>
+	<script>
+    function changeProduct(productId) {
+        window.location.href = 'index.php?quanly=chitietsp&sanpham_id=' + productId;
+    }
+    </script>
  </html>
