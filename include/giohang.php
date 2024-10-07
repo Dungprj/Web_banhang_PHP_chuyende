@@ -295,7 +295,7 @@ if(!isset($_SESSION['khachhang_id']))
 						?>
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/<?php echo $row_fetch_giohang['hinhanh'] ?>" style="width:100%; max-width:150px; " alt=""></a>
+								<a href=""><img src="uploads/<?php echo $row_fetch_giohang['hinhanh'] ?>" style="width:100%; max-width:150px; " alt=""></a>
 							</td>
 						
 							<td colspan="3" class="cart_description">

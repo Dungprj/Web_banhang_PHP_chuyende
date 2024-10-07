@@ -28,7 +28,7 @@ $total_pages = ceil($total_products / $products_per_page);
 $offset = ($current_page - 1) * $products_per_page;
 
 // Truy vấn để lấy danh sách sản phẩm cho trang hiện tại
-$query_products = "SELECT * FROM tbl_sanpham LIMIT $offset, $products_per_page";
+$query_products = "SELECT * FROM tbl_sanpham ORDER BY sanpham_id DESC LIMIT $offset, $products_per_page";
 $result_products = $con->query($query_products);
 ?>
 

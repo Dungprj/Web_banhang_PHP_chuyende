@@ -18,9 +18,7 @@
 								<li><a href="index.php" class="active">Trang chủ</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Danh mục sản phẩm</a></li>
-										<li><a href="product-details.html">Chi tiết sản phẩm</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
+                                        
 										<li><a href="cart.html">Giỏ hàng</a></li> 
 										<li><a href="login.html">Đăng nhập</a></li> 
                                     </ul>
@@ -51,10 +49,17 @@
 						</div>
 					</div>
 					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Tìm kiếm"/>
+					<form action="index.php?quanly=timkiem" method="POST">
+						<div class="search_product">
+							<input id="searchInput" type="text" placeholder="Tìm kiếm" name="tukhoa" />
+							<input type="submit" name="timkiem" value="Tìm kiếm">
 						</div>
-					</div>
+					</form>
+            </div>
 				</div>
 			</div>
 		</div><!--/header-bottom-->
+
+<script>
+    
+</script>

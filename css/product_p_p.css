@@ -12,8 +12,11 @@ h2 {
 }
 
 .product-card {
+ 
   min-width: 250px; /* Kích thước tối thiểu */
   max-width: 250px; /* Kích thước tối đa */
+  
+
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
@@ -21,6 +24,9 @@ h2 {
   text-align: center;
   background-color: #fff;
   transition: transform 0.2s;
+ 
+
+
  
   
 }

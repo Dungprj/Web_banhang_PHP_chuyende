@@ -54,21 +54,10 @@
 		$result_products_default = $con->query($query_products);
 		$result_products = $result_products_default;
 	
-		
-	} else {
-		$result_products = $result_products_default;
-		$title = "";
-	}
+		include "danhsachsanpham.php";
 
-
-
-
-
-	include "danhsachsanpham.php";
-
-
-	?>
-<!-- Phân trang -->
+		?>
+		<!-- Phân trang -->
 <div class="pagination">
     <?php 
     // Lấy tất cả các tham số truy vấn hiện tại
@@ -85,6 +74,31 @@
         </a>
     <?php endfor; ?>
 </div>
+
+<?php
+	
+	} else {
+	
+		?>
+
+		<h1>Chưa có sản phẩm cho danh mục này</h1>
+
+
+
+
+<?php
+		
+		
+	}
+
+
+
+
+
+	
+
+
+	?>
 
 
 		

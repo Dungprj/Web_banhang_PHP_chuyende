@@ -60,4 +60,24 @@ $title = "Sản phẩm thuộc hãng: " . htmlspecialchars(strtoupper($sanpham_c
 
 include "danhsachsanpham.php";
 
+
+
 ?>
+
+<!-- Phân trang -->
+<div class="pagination">
+    <?php 
+    // Lấy tất cả các tham số truy vấn hiện tại
+    $query_params = $_GET;
+    
+    for ($i = 1; $i <= $total_pages; $i++): 
+        // Cập nhật hoặc thêm tham số 'page' trong mảng query
+        $query_params['page'] = $i;
+        // Tạo URL với tất cả các query hiện có và page mới
+        $url = $_SERVER['PHP_SELF'] . '?' . http_build_query($query_params);
+    ?>
+        <a href="<?php echo $url; ?>" class="<?php echo ($i == $current_page) ? 'active' : ''; ?>">
+            <?php echo $i; ?>
+        </a>
+    <?php endfor; ?>
+</div>

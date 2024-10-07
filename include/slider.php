@@ -18,7 +18,7 @@
 									<button type="button" class="btn btn-default get">Mua ngay</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/image1.png" class="girl img-responsive" alt="" />
+									<img src="images/home/image1.png" class="girl img-responsive" alt="" styel="max-width:350px; max-height:250px; over-flow:hidden;"/>
 									<!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
 								</div>
 							</div>
@@ -30,7 +30,7 @@
 									<button type="button" class="btn btn-default get">Mua ngay</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/b5.webp" class="girl img-responsive" alt="" />
+									<img src="images/home/b5.webp" class="girl img-responsive" alt="" styel="max-width:350px;"/>
 									<!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
 								</div>
 							</div>
@@ -43,7 +43,7 @@
 									<button type="button" class="btn btn-default get">Mua ngay</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/ab.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/ab.jpg" class="girl img-responsive" alt="" styel="max-width:350px;" />
 									<!-- <img src="images/home/pricing.png" class="pricing" alt="" /> -->
 								</div>
 							</div>

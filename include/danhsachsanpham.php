@@ -10,7 +10,7 @@
         <div class="col-sm-4">
             <div class="product-card" style="cursor: pointer;" onclick="changeProduct(<?php echo $product['sanpham_id']; ?>)">
                 <div class="productinfo">
-                    <img src="images/<?php echo $product['sanpham_image']; ?>"
+                    <img src="./uploads/<?php echo $product['sanpham_image']; ?>"
                         alt="<?php echo htmlspecialchars($product['sanpham_name']); ?>" />
                     <h2><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?> VNĐ</h2>
                     <p><?php echo $product['sanpham_name']; ?></p>

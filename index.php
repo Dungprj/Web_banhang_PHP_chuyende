@@ -19,7 +19,7 @@
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/product_p_p.css" rel="stylesheet">
-	
+	<link href="css/product.css" rel="stylesheet">
 	<!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -69,7 +69,7 @@
 			include('include/hang.php');
 	}elseif($tam=='chitietsp'){
 		include "include/_partialpanellert.php";
-		include('include/product_detail.php');
+		include('include/chitietsanpham.php');
 	}elseif($tam=='giohang') {
 		
 		include('include/giohang.php');
