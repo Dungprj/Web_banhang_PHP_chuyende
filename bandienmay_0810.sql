@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 07, 2024 lúc 11:44 AM
+-- Thời gian đã tạo: Th10 08, 2024 lúc 05:56 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -217,16 +217,24 @@ CREATE TABLE `tbl_giohang` (
   `sanpham_id` int(11) NOT NULL,
   `giasanpham` varchar(50) NOT NULL,
   `hinhanh` varchar(50) NOT NULL,
-  `soluong` int(11) NOT NULL
+  `soluong` int(11) NOT NULL,
+  `khachhang_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_giohang`
 --
 
-INSERT INTO `tbl_giohang` (`giohang_id`, `tensanpham`, `sanpham_id`, `giasanpham`, `hinhanh`, `soluong`) VALUES
-(1, 'Máy giặc Samsung', 26, '105000000', 'm8.jpg', 1),
-(2, 'Galaxy A15', 21, '15000000', 'mk3.jpg', 1);
+INSERT INTO `tbl_giohang` (`giohang_id`, `tensanpham`, `sanpham_id`, `giasanpham`, `hinhanh`, `soluong`, `khachhang_id`) VALUES
+(44, 'Tivi sony 40', 19, '5600000', 'm4.jpg', 1, 0),
+(65, 'Tivi sony 40', 19, '5600000', 'm4.jpg', 1, 42),
+(67, 'Tủ lạnh A10', 17, '6000000', 'k2.jpg', 1, 42),
+(68, 'Máy giặc Shark', 27, '75000000', 'm8.jpg', 7, 42),
+(69, 'Laptop A15', 25, '6600000', 'mk6.jpg', 1, 42),
+(70, 'Máy giặc Shark', 27, '75000000', 'm8.jpg', 1, 43),
+(71, 'Laptop A15', 25, '6600000', 'mk6.jpg', 5, 43),
+(82, 'Laptop Acer Aspire Lite 14 51M', 45, '10490000', 'lap1.jpg', 5, 30),
+(83, 'Tủ lạnh Panasonic Inverter 255L NR-BV281BVKV', 32, '12390000', 'tlpanasonic1.jpg', 1, 30);
 
 -- --------------------------------------------------------
 
@@ -305,7 +313,7 @@ INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham
 (30, 2, 'Tủ lạnh Toshiba Inverter 180L GR-RT234WE-PMV(52)', 'toshiba', 'tl', '5190000', '', 0, 0, 11, 'tltoshiba1.png'),
 (31, 2, 'Tủ lạnh Samsung Inverter 488L 4 cửa RF48A4000B4/SV', 'samsung', 'tl', '19900000', '', 0, 0, 11, 'tlsamsung1.png'),
 (32, 2, 'Tủ lạnh Panasonic Inverter 255L NR-BV281BVKV', 'panasonic', 'tl', '12390000', '', 0, 0, 11, 'tlpanasonic1.jpg'),
-(45, 1, 'Laptop Acer Aspire Lite 14 51M', 'acer', 'Tích hợp tuyệt vời với đa dạng chế độ làm việc trong ngày, đẩy cao hiệu suất tư duy sáng tạo cũng như nâng hiệu quả công việc của ', '10490000', '9490000', 0, 0, 25, 'lap1.jpg');
+(45, 0, 'Laptop Acer Aspire Lite 14 51M', '', '', '', '', 0, 0, 0, 'asus1.jpg');
 
 -- --------------------------------------------------------
 
@@ -746,7 +754,8 @@ ALTER TABLE `tbl_giaodich`
 -- Chỉ mục cho bảng `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  ADD PRIMARY KEY (`giohang_id`);
+  ADD PRIMARY KEY (`giohang_id`),
+  ADD UNIQUE KEY `user_id` (`giohang_id`,`tensanpham`,`sanpham_id`,`giasanpham`,`hinhanh`,`soluong`);
 
 --
 -- Chỉ mục cho bảng `tbl_khachhang`
@@ -856,7 +865,7 @@ ALTER TABLE `tbl_giaodich`
 -- AUTO_INCREMENT cho bảng `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_khachhang`
@@ -868,7 +877,7 @@ ALTER TABLE `tbl_khachhang`
 -- AUTO_INCREMENT cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  MODIFY `sanpham_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `sanpham_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_sanpham_chitietcauhinh`
@@ -892,7 +901,7 @@ ALTER TABLE `tbl_sanpham_gioithieu`
 -- AUTO_INCREMENT cho bảng `tbl_sanpham_images`
 --
 ALTER TABLE `tbl_sanpham_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_slider`
