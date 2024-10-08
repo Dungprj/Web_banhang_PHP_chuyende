@@ -9,7 +9,7 @@ $Message_ApplyVourcher = "";
 
 
 include  './/include/models/VeGiamGia.php';
-
+$khachhang_id = "";
 
 if(isset($_SESSION['khachhang_id']))
 {

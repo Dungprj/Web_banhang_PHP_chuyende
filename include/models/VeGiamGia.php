@@ -1,5 +1,5 @@
 <?php
-include('C:\xampp\htdocs\bandienmay\bandienmay\db\connect.php');
+include('.//db/connect.php');
 include("GiamGia.php");
 class Tiketdiscount {
   

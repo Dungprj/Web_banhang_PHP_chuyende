@@ -12,7 +12,7 @@
                 <div class="productinfo">
                     <img src="./uploads/<?php echo $product['sanpham_image']; ?>"
                         alt="<?php echo htmlspecialchars($product['sanpham_name']); ?>" />
-                    <h2><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?> VNĐ</h2>
+                    <h2><?php echo $product['sanpham_gia']?> VNĐ</h2>
                     <p><?php echo $product['sanpham_name']; ?></p>
                     <form action="index.php?quanly=giohang" method="post">
                         <fieldset>
