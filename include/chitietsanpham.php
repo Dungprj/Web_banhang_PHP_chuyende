@@ -82,26 +82,36 @@ while ($row = $result_warranty->fetch_assoc()) {
 
             <div class="col-sm-7">
                 <div class="product-information">
-                    <h2><?php echo $product['sanpham_name']; ?></h2>
-                    <span>
-                        <span><?php echo number_format($product['sanpham_gia']); ?><sup>đ</sup></span>
-                        <label>Số lượng:</label>
-                        <div class="quantity-controls">
-                            <button type="button" class="quantity-btn" id="decrease-btn">-</button>
-                            <input type="text" id="quantity-input" value="1" />
-                            <button type="button" class="quantity-btn" id="increase-btn">+</button>
-                        </div>
-                        <button type="button" class="btn btn-default cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            Thêm vào giỏ hàng
-                        </button>
-                        <a href="index.php">
-                            <button type="button" class="btn btn-default cart">
-                                Tiếp tục mua hàng
-                            </button>
-                        </a>
-                    </span>
+                    <h2><?php echo htmlspecialchars($product['sanpham_name']); ?></h2>
+                    <form action="index.php?quanly=giohang" method="post">
 
+                        <span>
+                            <span><?php echo number_format($product['sanpham_gia']); ?><sup>đ</sup></span>
+                            <label>Số lượng:</label>
+                            <div class="quantity-controls">
+                                <button type="button" class="quantity-btn" id="decrease-btn"
+                                    onclick="decreaseQuantity()">-</button>
+                                <input type="number" id="quantity-input" name="soluong" value="1" min="1" />
+                                <button type="button" class="quantity-btn" id="increase-btn"
+                                    onclick="increaseQuantity()">+</button>
+                            </div>
+                            <input type="hidden" name="sanpham_id"
+                                value="<?php echo intval($product['sanpham_id']); ?>">
+                            <input type="hidden" name="tensanpham"
+                                value="<?php echo htmlspecialchars($product['sanpham_name']); ?>">
+                            <input type="hidden" name="giasanpham"
+                                value="<?php echo intval($product['sanpham_gia']); ?>">
+                            <input type="hidden" name="hinhanh" value="<?php echo htmlspecialchars($first_image); ?>">
+
+                            <button type="submit" name="themgiohang" class="btn btn-default add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
+                            </button>
+
+                        </span>
+                    </form>
+                    <a href="index.php" class="btn btn-default cart">
+                        Tiếp tục mua hàng
+                    </a>
                 </div>
                 <!--/product-information-->
             </div>
@@ -199,8 +209,8 @@ $result_products = $result;
 ?>
 
 <div class="related-products">
-    
-   <?php
+
+    <?php
   
    $title = "Sản phẩm liên quan";
    include "danhsachsanpham.php";

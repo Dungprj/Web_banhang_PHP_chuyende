@@ -1,5 +1,6 @@
 <?php
-include('.//db/connect.php');
+
+
 include("GiamGia.php");
 class Tiketdiscount {
   

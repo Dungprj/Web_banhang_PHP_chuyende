@@ -53,9 +53,9 @@ if(!isset($_SESSION['khachhang_id']))
  		$sanpham_id = $_POST['product_id'][$i];
  		$soluong = $_POST['soluong'][$i];
  		if($soluong<=0){
- 			$sql_delete = mysqli_query($con,"DELETE FROM tbl_giohang WHERE sanpham_id='$sanpham_id' and khachhang_id = $khachhang_id");
+ 			$sql_delete = mysqli_query($con,"DELETE FROM tbl_giohang WHERE sanpham_id='$sanpham_id' and khachhang_id = '$khachhang_id'");
  		}else{
- 			$sql_update = mysqli_query($con,"UPDATE tbl_giohang SET soluong='$soluong' WHERE sanpham_id='$sanpham_id' and khachhang_id = $khachhang_id");
+ 			$sql_update = mysqli_query($con,"UPDATE tbl_giohang SET soluong='$soluong' WHERE sanpham_id='$sanpham_id' and khachhang_id = '$khachhang_id'");
  		}
  	}
 
@@ -100,24 +100,43 @@ if(!isset($_SESSION['khachhang_id']))
 	 		$sql_delete_thanhtoan = mysqli_query($con,"DELETE FROM tbl_giohang WHERE sanpham_id='$sanpham_id' and khachhang_id = $khachhang_id");
  		}
 
+		
+
  	}
  }elseif(isset($_POST['thanhtoandangnhap'])){
-	$voucher_id = $_SESSION['id_voucher_select'];
+
+	$voucher_id = null;
+	if(isset($_SESSION['id_voucher_select']))
+	{
+		$voucher_id = $_SESSION['id_voucher_select'];
+	}
+	
 
  	$khachhang_id = $_SESSION['khachhang_id'];
  	$mahang = rand(0,9999);	
  	for($i=0;$i<count($_POST['thanhtoan_product_id']);$i++){
 	 		$sanpham_id = $_POST['thanhtoan_product_id'][$i];
 	 		$soluong = $_POST['thanhtoan_soluong'][$i];
-	 		$sql_donhang = mysqli_query($con,"INSERT INTO tbl_donhang(sanpham_id,khachhang_id,soluong,mahang,voucher_id) values ('$sanpham_id','$khachhang_id','$soluong','$mahang',$voucher_id)");
-	 		$sql_giaodich = mysqli_query($con,"INSERT INTO tbl_giaodich(sanpham_id,soluong,magiaodich,khachhang_id,voucher_id) values ('$sanpham_id','$soluong','$mahang','$khachhang_id',$voucher_id)");
+	 		$sql_donhang = mysqli_query($con,"INSERT INTO tbl_donhang(sanpham_id,khachhang_id,soluong,mahang,voucher_id) values ('$sanpham_id','$khachhang_id','$soluong','$mahang','$voucher_id')");
+	 		$sql_giaodich = mysqli_query($con,"INSERT INTO tbl_giaodich(sanpham_id,soluong,magiaodich,khachhang_id,voucher_id) values ('$sanpham_id','$soluong','$mahang','$khachhang_id','$voucher_id')");
 	 		$sql_delete_thanhtoan = mysqli_query($con,"DELETE FROM tbl_giohang WHERE sanpham_id='$sanpham_id' and khachhang_id = $khachhang_id ");
  		}
-		 $soLuongVeHienTai = Tiketdiscount::getSoLuongHienTai($voucher_id);
-		 Tiketdiscount::setSoLuongHienTai($voucher_id,$soLuongVeHienTai-1);
-		 $sqldungvoucher = mysqli_query($con, "INSERT INTO tbl_usevoucher(khachhang_id,voucher_id,ngaySudung) values('$khachhang_id','$$voucher_id',default)");
 
-		 echo "<script>alert('Đặt hàng thành công !')</script>";
+		if($voucher_id !=null)
+		{
+			$soLuongVeHienTai = Tiketdiscount::getSoLuongHienTai($voucher_id);
+			Tiketdiscount::setSoLuongHienTai($voucher_id,$soLuongVeHienTai-1);
+			$sqldungvoucher = mysqli_query($con, "INSERT INTO tbl_usevoucher(khachhang_id,voucher_id,ngaySudung) values('$khachhang_id','$$voucher_id',default)");
+
+		}
+
+		
+		if(isset($_SESSION['id_voucher_select']))
+		{
+			unset($_SESSION['id_voucher_select']);
+		}
+		echo "<script>alert('Đặt hàng thành công !')</script>";
+		
 	
  }
 
@@ -440,7 +459,7 @@ document.querySelectorAll('.cart_quantity_down').forEach(function(button) {
 				<?php
 				$sql_lay_magiamgia = mysqli_query($con,"SELECT * FROM tbl_tiketdiscount");
 				while($row_fetch_magiamgia = mysqli_fetch_array($sql_lay_magiamgia)){ 
-					if($row_fetch_magiamgia["soLuong"]>0)
+					if($row_fetch_magiamgia["soLuong"]>0 && strtotime($row_fetch_magiamgia["ngayKetThuc"]) >= strtotime(date("Y-m-d H:i:s")))
 					{
 				?>
 

@@ -1,7 +1,7 @@
 <?php
 	
-    include('C:\xampp\htdocs\bandienmay\bandienmay\include\models\VeGiamGia.php');
-   
+    include "../include/models/VeGiamGia.php";
+	include "../db/connect.php";
     
 ?>
 <?php
