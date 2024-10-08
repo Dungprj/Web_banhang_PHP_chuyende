@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 08, 2024 lúc 05:56 PM
+-- Thời gian đã tạo: Th10 08, 2024 lúc 06:29 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -164,7 +164,16 @@ INSERT INTO `tbl_donhang` (`donhang_id`, `sanpham_id`, `soluong`, `mahang`, `kha
 (37, 27, 1, '6687', 27, '2019-10-09 09:48:42', 1, 2, 0),
 (38, 22, 1, '1125', 27, '2019-10-09 09:47:17', 1, 2, 0),
 (39, 24, 1, '1125', 27, '2019-10-09 09:47:17', 1, 2, 0),
-(40, 20, 1, '555', 27, '2019-10-09 09:50:07', 0, 2, 0);
+(40, 20, 1, '555', 27, '2019-10-09 09:50:07', 0, 2, 0),
+(41, 45, 5, '3605', 30, '2024-10-08 16:12:13', 0, 0, 43),
+(42, 32, 1, '3605', 30, '2024-10-08 16:12:13', 0, 0, 43),
+(43, 45, 1, '4953', 30, '2024-10-08 16:12:41', 0, 0, 43),
+(48, 31, 1, '3233', 30, '2024-10-08 16:13:58', 0, 0, 35),
+(51, 29, 1, '4527', 30, '2024-10-08 16:25:16', 0, 0, 35),
+(52, 31, 1, '4527', 30, '2024-10-08 16:25:16', 0, 0, 35),
+(53, 17, 1, '4527', 30, '2024-10-08 16:25:16', 0, 0, 35),
+(54, 24, 3, '4440', 30, '2024-10-08 16:28:38', 0, 0, 35),
+(55, 21, 1, '4440', 30, '2024-10-08 16:28:38', 0, 0, 35);
 
 -- --------------------------------------------------------
 
@@ -203,7 +212,22 @@ INSERT INTO `tbl_giaodich` (`giaodich_id`, `sanpham_id`, `soluong`, `magiaodich`
 (14, 27, 1, '6687', '2019-10-09 09:48:42', 27, 1, 2, 0),
 (15, 22, 1, '1125', '2019-10-09 09:47:17', 27, 1, 2, 0),
 (16, 24, 1, '1125', '2019-10-09 09:47:17', 27, 1, 2, 0),
-(17, 20, 1, '555', '2019-10-09 09:50:08', 27, 0, 2, 0);
+(17, 20, 1, '555', '2019-10-09 09:50:08', 27, 0, 2, 0),
+(18, 45, 5, '3605', '2024-10-08 16:12:13', 30, 0, 0, 43),
+(19, 32, 1, '3605', '2024-10-08 16:12:13', 30, 0, 0, 43),
+(20, 45, 1, '4953', '2024-10-08 16:12:41', 30, 0, 0, 43),
+(21, 45, 3, '8870', '2024-10-08 16:12:58', 30, 0, 0, 43),
+(22, 32, 3, '8870', '2024-10-08 16:12:58', 30, 0, 0, 43),
+(23, 45, 5, '7950', '2024-10-08 16:13:48', 30, 0, 0, 43),
+(24, 32, 5, '7950', '2024-10-08 16:13:48', 30, 0, 0, 43),
+(25, 31, 1, '3233', '2024-10-08 16:13:58', 30, 0, 0, 35),
+(26, 45, 3, '8440', '2024-10-08 16:15:30', 30, 0, 0, 35),
+(27, 31, 1, '8440', '2024-10-08 16:15:30', 30, 0, 0, 35),
+(28, 29, 1, '4527', '2024-10-08 16:25:16', 30, 0, 0, 35),
+(29, 31, 1, '4527', '2024-10-08 16:25:16', 30, 0, 0, 35),
+(30, 17, 1, '4527', '2024-10-08 16:25:16', 30, 0, 0, 35),
+(31, 24, 3, '4440', '2024-10-08 16:28:38', 30, 0, 0, 35),
+(32, 21, 1, '4440', '2024-10-08 16:28:38', 30, 0, 0, 35);
 
 -- --------------------------------------------------------
 
@@ -232,9 +256,7 @@ INSERT INTO `tbl_giohang` (`giohang_id`, `tensanpham`, `sanpham_id`, `giasanpham
 (68, 'Máy giặc Shark', 27, '75000000', 'm8.jpg', 7, 42),
 (69, 'Laptop A15', 25, '6600000', 'mk6.jpg', 1, 42),
 (70, 'Máy giặc Shark', 27, '75000000', 'm8.jpg', 1, 43),
-(71, 'Laptop A15', 25, '6600000', 'mk6.jpg', 5, 43),
-(82, 'Laptop Acer Aspire Lite 14 51M', 45, '10490000', 'lap1.jpg', 5, 30),
-(83, 'Tủ lạnh Panasonic Inverter 255L NR-BV281BVKV', 32, '12390000', 'tlpanasonic1.jpg', 1, 30);
+(71, 'Laptop A15', 25, '6600000', 'mk6.jpg', 5, 43);
 
 -- --------------------------------------------------------
 
@@ -308,12 +330,11 @@ INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham
 (25, 4, 'Điện thoại Samsung Galaxy Z Flip6', 'samsung', 'phone', '26990000', '5300000', 0, 0, 10, 'zlip1.jpg'),
 (26, 4, 'Điện thoại Xiaomi Redmi Note 13 Pro', 'xiaomi', 'phone', '6190000', '99000000', 0, 0, 10, 'xiaomi1.jpg'),
 (27, 3, 'Máy giặt Toshiba Inverter', 'toshiba', 'mg', '7500000', '63000000', 0, 0, 10, 'toshiba1.png'),
-(28, 3, 'Máy giặt Aqua 8.5Kg AQW-FR85GT.S', 'aqua', 'mg', '4590000', '', 0, 0, 11, 'aqua1.png'),
-(29, 3, 'Máy giặt lồng ngang Panasonic Inverter 10,5Kg NA-V105FR1BV', 'panasonic', 'mg', '15900000', '', 0, 0, 11, 'panasonic1.jpg'),
-(30, 2, 'Tủ lạnh Toshiba Inverter 180L GR-RT234WE-PMV(52)', 'toshiba', 'tl', '5190000', '', 0, 0, 11, 'tltoshiba1.png'),
-(31, 2, 'Tủ lạnh Samsung Inverter 488L 4 cửa RF48A4000B4/SV', 'samsung', 'tl', '19900000', '', 0, 0, 11, 'tlsamsung1.png'),
-(32, 2, 'Tủ lạnh Panasonic Inverter 255L NR-BV281BVKV', 'panasonic', 'tl', '12390000', '', 0, 0, 11, 'tlpanasonic1.jpg'),
-(45, 0, 'Laptop Acer Aspire Lite 14 51M', '', '', '', '', 0, 0, 0, 'asus1.jpg');
+(28, 3, 'Máy giặt Aqua 8.5Kg AQW-FR85GT.S', 'aqua', 'mg', '4590000', '4580000', 0, 0, 11, 'aqua1.png'),
+(29, 3, 'Máy giặt lồng ngang Panasonic Inverter 10,5Kg NA-V105FR1BV', 'panasonic', 'mg', '15900000', '14900000', 0, 0, 11, 'panasonic1.jpg'),
+(30, 2, 'Tủ lạnh Toshiba Inverter 180L GR-RT234WE-PMV(52)', 'toshiba', 'tl', '5190000', '4190000', 0, 0, 11, 'tltoshiba1.png'),
+(31, 2, 'Tủ lạnh Samsung Inverter 488L 4 cửa RF48A4000B4/SV', 'samsung', 'tl', '19900000', '18900000', 0, 0, 11, 'tlsamsung1.png'),
+(32, 2, 'Tủ lạnh Panasonic Inverter 255L NR-BV281BVKV', 'panasonic', 'tl', '12390000', '10390000', 0, 0, 11, 'tlpanasonic1.jpg');
 
 -- --------------------------------------------------------
 
@@ -604,11 +625,7 @@ INSERT INTO `tbl_sanpham_images` (`image_id`, `sanpham_id`, `image_url`, `thutu`
 (71, 22, 'tvsamsung1.1.jpg', NULL),
 (72, 22, 'tvsamsung1.2.jpg', NULL),
 (73, 22, 'tvsamsung1.3.jpg', NULL),
-(74, 22, 'tvsamsung1.4.jpg', NULL),
-(158, 45, 'lap2.jpg', NULL),
-(159, 45, 'lap3.jpg', NULL),
-(160, 45, 'lap4.jpg', NULL),
-(161, 45, 'lap5.jpg', NULL);
+(74, 22, 'tvsamsung1.4.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -676,7 +693,7 @@ CREATE TABLE `tbl_tiketdiscount` (
 --
 
 INSERT INTO `tbl_tiketdiscount` (`id`, `name`, `phanTramGiam`, `ngayBatDau`, `ngayKetThuc`, `soLuong`) VALUES
-(35, 'mùa thu', 10.00, '2024-09-13 22:49:00', '2024-09-30 22:49:00', 85),
+(35, 'mùa thu', 10.00, '2024-09-13 22:49:00', '2024-09-30 22:49:00', 81),
 (36, 'kkk', 99.00, '2024-08-15 23:27:00', '2024-08-31 23:28:00', 0),
 (37, 'kkl', 50.00, '2024-08-22 12:49:00', '2024-08-31 12:49:00', 0),
 (38, 'uuu', 100.00, '2024-08-23 12:50:00', '2024-08-31 12:50:00', 0),
@@ -684,7 +701,7 @@ INSERT INTO `tbl_tiketdiscount` (`id`, `name`, `phanTramGiam`, `ngayBatDau`, `ng
 (40, 'lkkkk', 90.00, '2024-08-24 13:34:00', '2024-08-31 13:35:00', 5),
 (41, 'longk', 77.00, '2024-08-24 13:47:00', '2024-08-31 13:47:00', 50),
 (42, 'mùa thu 2024', 50.00, '2024-09-28 14:00:00', '2024-09-30 14:00:00', 2000),
-(43, 'mùa thu 2024', 50.00, '2024-09-28 14:00:00', '2024-09-30 14:00:00', 2000);
+(43, 'mùa thu 2024', 50.00, '2024-09-28 14:00:00', '2024-09-30 14:00:00', 1996);
 
 -- --------------------------------------------------------
 
@@ -708,7 +725,15 @@ INSERT INTO `tbl_usevoucher` (`id`, `khachhang_id`, `voucher_id`, `ngaySudung`) 
 (54, 29, 0, '2024-09-14 14:45:00'),
 (55, 29, 0, '2024-09-14 14:46:55'),
 (56, 29, 0, '2024-09-14 14:48:07'),
-(57, 29, 0, '2024-09-28 14:03:04');
+(57, 29, 0, '2024-09-28 14:03:04'),
+(58, 30, 0, '2024-10-08 23:12:13'),
+(59, 30, 0, '2024-10-08 23:12:41'),
+(60, 30, 0, '2024-10-08 23:12:58'),
+(61, 30, 0, '2024-10-08 23:13:48'),
+(62, 30, 0, '2024-10-08 23:13:58'),
+(63, 30, 0, '2024-10-08 23:15:30'),
+(64, 30, 0, '2024-10-08 23:25:16'),
+(65, 30, 0, '2024-10-08 23:28:38');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -853,19 +878,19 @@ ALTER TABLE `tbl_danhmuc_tin`
 -- AUTO_INCREMENT cho bảng `tbl_donhang`
 --
 ALTER TABLE `tbl_donhang`
-  MODIFY `donhang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `donhang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_giaodich`
 --
 ALTER TABLE `tbl_giaodich`
-  MODIFY `giaodich_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `giaodich_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_khachhang`
@@ -919,7 +944,7 @@ ALTER TABLE `tbl_tiketdiscount`
 -- AUTO_INCREMENT cho bảng `tbl_usevoucher`
 --
 ALTER TABLE `tbl_usevoucher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

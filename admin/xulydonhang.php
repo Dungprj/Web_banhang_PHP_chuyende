@@ -72,7 +72,7 @@ if(isset($_POST['capnhatdonhang'])){
 						<td><?php echo $row_donhang['sanpham_name']; ?></td>
 						<td><?php echo $row_donhang['soluong']; ?></td>
 						<td><?php echo $row_donhang['sanpham_giakhuyenmai']; ?></td>
-						<td><?php echo number_format($row_donhang['soluong']*$row_donhang['sanpham_giakhuyenmai']).'vnđ'; ?></td>
+						<td><?php echo (int)$row_donhang['soluong']*(int)$row_donhang['sanpham_giakhuyenmai'].'vnđ'; ?></td>
 						
 						<td><?php echo $row_donhang['ngaythang'] ?></td>
 						<input type="hidden" name="mahang_xuly" value="<?php echo $row_donhang['mahang'] ?>">
