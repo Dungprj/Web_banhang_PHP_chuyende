@@ -84,6 +84,7 @@ mysqli_close($con);
 	<meta charset="UTF-8">
 	<title>Thống kê</title>
 	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <?php include "dashboard.php";?>
