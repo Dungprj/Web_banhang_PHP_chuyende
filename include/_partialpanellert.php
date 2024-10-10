@@ -4,7 +4,19 @@
 $sql_category_danhmuc = mysqli_query($con,'SELECT * FROM tbl_category ORDER BY category_id DESC');
 $sql_list = mysqli_query($con, "SELECT * FROM `tbl_sanpham` ORDER BY `sanpham_id` ASC;");
 
+
+
+$sql_price_range = mysqli_query($con, "SELECT MIN(sanpham_gia) AS minPrice, MAX(sanpham_gia) AS maxPrice  FROM tbl_sanpham");
+$row_price_range = mysqli_fetch_assoc($sql_price_range);
+$minPrice = $row_price_range['minPrice'];
+$maxPrice = $row_price_range['maxPrice'];
+
 ?>
+
+
+
+
+
 
 <div class="col-sm-3">
             <div class="left-sidebar">
@@ -57,24 +69,57 @@ $sql_list = mysqli_query($con, "SELECT * FROM `tbl_sanpham` ORDER BY `sanpham_id
               </div>
               <!--/brands_products-->
               <div class="price-range">
-                <!--price-range-->
-                <h2>Khoảng giá</h2>
-                <div class="well text-center">
+              <h2>Khoảng giá</h2>
+              <div class="well text-center">
                   <input
-                    type="text"
-                    class="span2"
-                    value=""
-                    data-slider-min="0"
-                    data-slider-max="600"
-                    data-slider-step="5"
-                    data-slider-value="[250,450]"
-                    id="sl2"
+                      style="margin-bottom:2%;"
+                      type="text"
+                      class="span2 loctheogia"
+                      value=""
+                      data-slider-min="<?php echo $minPrice; ?>"
+                      data-slider-max="<?php echo $maxPrice; ?>"
+                      data-slider-step="100000"
+                      data-slider-value="[<?php echo $minPrice + 20000000 ; ?>, <?php echo $maxPrice - 20000000; ?>]"
+                      id="sl2"
                   /><br />
-                  <b class="pull-left">0 VND</b>
-                  <b class="pull-right">60.000.000 VND</b>
-                </div>
+                  <b class="pull-left" style="position: absolute;left: -1%;"><?php echo number_format($minPrice); ?> VND</b>
+                  <b class="pull-right" style="position: absolute;right: 5%;"><?php echo number_format($maxPrice); ?> VND</b>
               </div>
+              <button type="submit" style="float: right;margin-bottom: 5%;" class="btn btn-danger loctheogia">Lọc</button>
+          </div>
+
+
+              
               <!--/price-range-->
 
             </div>
           </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+
+$(document).ready(function() {
+  // Sự kiện khi nút "Lọc" được nhấn
+  $(".loctheogia").click(function() {
+    // Lấy giá trị từ slider
+    var sliderValue = $("#sl2").val();
+    
+    // Tách thành khoảng giá
+    var minPrice_slider = sliderValue.split(',')[0] == "" ? <?php echo $minPrice+20000000?> :sliderValue.split(',')[0];// Giá trị nhỏ nhất
+    var maxPrice_slider = sliderValue.split(',')[1] == undefined ? <?php echo $maxPrice-20000000?> :sliderValue.split(',')[1]; // Giá trị lớn nhất
+
+    
+    
+    // Tạo URL mới với khoảng giá
+    var newUrl = window.location.origin + window.location.pathname +"?quanly=locgia" +'&minPrice=' + minPrice_slider + '&maxPrice=' + maxPrice_slider;
+    
+    // Điều hướng tới URL mới
+     window.location.href = newUrl;
+  });
+});
+
+</script>

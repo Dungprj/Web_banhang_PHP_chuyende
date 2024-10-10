@@ -89,12 +89,16 @@
 		include('include/xemdonhang.php');
 	}elseif ($tam=='taikhoan') {
 		include('include/account.php');
+	}elseif ($tam=='locgia') {
+		include "include/_partialpanellert.php";
+		include('include/gia.php');
 	}
 	elseif ($tam=='dangnhap') {
 		include('include/dangnhap.php');
 	}elseif ($tam=='dangky') {
 		include('include/dangky.php');
 	}else{
+		echo "vao day";
 		include "include/slider.php";
 		include "include/_partialpanellert.php";
 		include('include/home.php'); 
