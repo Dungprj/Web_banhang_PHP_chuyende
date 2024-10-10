@@ -98,7 +98,7 @@
 	}elseif ($tam=='dangky') {
 		include('include/dangky.php');
 	}else{
-		echo "vao day";
+		
 		include "include/slider.php";
 		include "include/_partialpanellert.php";
 		include('include/home.php'); 
