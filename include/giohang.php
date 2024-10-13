@@ -18,7 +18,13 @@ if(isset($_SESSION['khachhang_id']))
 
 if(!isset($_SESSION['khachhang_id']))
 {
-	echo "<script>alert('chưa đăng nhập !')</script>";
+	echo "<script>
+	alert('chưa đăng nhập !');
+
+	window.location.href ='index.php?quanly=dangnhap';
+	
+	</script>";
+	
 	die();
 }
 
