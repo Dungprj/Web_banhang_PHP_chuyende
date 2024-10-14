@@ -63,7 +63,7 @@ if(!isset($_SESSION['khachhang_id']))
  		}else{
  			$sql_update = mysqli_query($con,"UPDATE tbl_giohang SET soluong='$soluong' WHERE sanpham_id='$sanpham_id' and khachhang_id = '$khachhang_id'");
  		}
- 	}
+ 	}	
 
  }elseif(isset($_GET['xoa'])){
  	$id = $_GET['xoa'];
