@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 08, 2024 lúc 06:29 PM
+-- Thời gian đã tạo: Th10 16, 2024 lúc 06:22 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -68,6 +68,39 @@ INSERT INTO `tbl_baiviet` (`baiviet_id`, `tenbaiviet`, `tomtat`, `noidung`, `dan
 (3, 'Bài 3: Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 3, 'k2.jpg'),
 (4, 'Bài 4 :Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 4, 'b4.jpg'),
 (5, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Bài 5 : Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 4, 'm8.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_brands`
+--
+
+CREATE TABLE `tbl_brands` (
+  `brands_id` int(11) NOT NULL,
+  `brands_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_brands`
+--
+
+INSERT INTO `tbl_brands` (`brands_id`, `brands_name`) VALUES
+(1, 'Asus'),
+(2, 'Dell'),
+(3, 'HP'),
+(4, 'Lenovo'),
+(5, 'Samsung'),
+(6, 'Sony'),
+(7, 'LG'),
+(8, 'Apple'),
+(9, 'Xiaomi'),
+(10, 'Toshiba'),
+(11, 'Aqua'),
+(12, 'Panasonic'),
+(13, 'Acer'),
+(14, 'Lenovo'),
+(22, 'logitech'),
+(23, 'ava');
 
 -- --------------------------------------------------------
 
@@ -173,7 +206,30 @@ INSERT INTO `tbl_donhang` (`donhang_id`, `sanpham_id`, `soluong`, `mahang`, `kha
 (52, 31, 1, '4527', 30, '2024-10-08 16:25:16', 0, 0, 35),
 (53, 17, 1, '4527', 30, '2024-10-08 16:25:16', 0, 0, 35),
 (54, 24, 3, '4440', 30, '2024-10-08 16:28:38', 0, 0, 35),
-(55, 21, 1, '4440', 30, '2024-10-08 16:28:38', 0, 0, 35);
+(55, 21, 1, '4440', 30, '2024-10-08 16:28:38', 0, 0, 35),
+(56, 32, 1, '8675', 30, '2024-10-08 17:21:52', 0, 0, 0),
+(57, 32, 1, '1731', 30, '2024-10-08 17:22:04', 0, 0, 0),
+(58, 31, 1, '1731', 30, '2024-10-08 17:22:04', 0, 0, 0),
+(59, 32, 1, '8496', 30, '2024-10-08 17:22:52', 0, 0, 0),
+(60, 32, 1, '1493', 30, '2024-10-08 17:23:13', 0, 0, 0),
+(61, 29, 1, '7712', 30, '2024-10-08 17:23:20', 0, 0, 0),
+(62, 32, 1, '7196', 30, '2024-10-08 17:24:15', 0, 0, 0),
+(63, 32, 1, '251', 30, '2024-10-08 17:25:10', 0, 0, 0),
+(64, 32, 1, '4488', 30, '2024-10-08 17:26:33', 0, 0, 0),
+(65, 32, 1, '6314', 30, '2024-10-08 17:26:40', 0, 0, 0),
+(66, 32, 1, '1784', 30, '2024-10-08 17:27:15', 0, 0, 0),
+(67, 27, 1, '1292', 30, '2024-10-08 17:54:21', 0, 0, 40),
+(68, 31, 1, '4540', 30, '2024-10-08 17:56:04', 0, 0, 40),
+(69, 27, 1, '642', 30, '2024-10-08 17:57:55', 0, 0, 40),
+(70, 32, 1, '9951', 30, '2024-10-08 17:59:27', 0, 0, 40),
+(71, 31, 1, '4099', 30, '2024-10-08 18:00:20', 0, 0, 40),
+(72, 31, 1, '5662', 30, '2024-10-08 18:02:03', 0, 0, 0),
+(73, 47, 1, '7839', 30, '2024-10-10 03:32:32', 0, 0, 42),
+(74, 47, 2, '5664', 30, '2024-10-16 15:12:25', 0, 0, 42),
+(75, 32, 11, '5664', 30, '2024-10-16 15:12:25', 0, 0, 42),
+(76, 31, 1, '5664', 30, '2024-10-16 15:12:25', 0, 0, 42),
+(77, 21, 4, '5664', 30, '2024-10-16 15:12:25', 0, 0, 42),
+(78, 19, 6, '5664', 30, '2024-10-16 15:12:25', 0, 0, 42);
 
 -- --------------------------------------------------------
 
@@ -227,7 +283,29 @@ INSERT INTO `tbl_giaodich` (`giaodich_id`, `sanpham_id`, `soluong`, `magiaodich`
 (29, 31, 1, '4527', '2024-10-08 16:25:16', 30, 0, 0, 35),
 (30, 17, 1, '4527', '2024-10-08 16:25:16', 30, 0, 0, 35),
 (31, 24, 3, '4440', '2024-10-08 16:28:38', 30, 0, 0, 35),
-(32, 21, 1, '4440', '2024-10-08 16:28:38', 30, 0, 0, 35);
+(32, 21, 1, '4440', '2024-10-08 16:28:38', 30, 0, 0, 35),
+(33, 32, 1, '1731', '2024-10-08 17:22:04', 30, 0, 0, 0),
+(34, 31, 1, '1731', '2024-10-08 17:22:04', 30, 0, 0, 0),
+(35, 32, 1, '8496', '2024-10-08 17:22:52', 30, 0, 0, 0),
+(36, 32, 1, '1493', '2024-10-08 17:23:13', 30, 0, 0, 0),
+(37, 29, 1, '7712', '2024-10-08 17:23:20', 30, 0, 0, 0),
+(38, 32, 1, '7196', '2024-10-08 17:24:15', 30, 0, 0, 0),
+(39, 32, 1, '251', '2024-10-08 17:25:10', 30, 0, 0, 0),
+(40, 32, 1, '4488', '2024-10-08 17:26:33', 30, 0, 0, 0),
+(41, 32, 1, '6314', '2024-10-08 17:26:40', 30, 0, 0, 0),
+(42, 32, 1, '1784', '2024-10-08 17:27:15', 30, 0, 0, 0),
+(43, 27, 1, '1292', '2024-10-08 17:54:21', 30, 0, 0, 40),
+(44, 31, 1, '4540', '2024-10-08 17:56:04', 30, 0, 0, 40),
+(45, 27, 1, '642', '2024-10-08 17:57:55', 30, 0, 0, 40),
+(46, 32, 1, '9951', '2024-10-08 17:59:27', 30, 0, 0, 40),
+(47, 31, 1, '4099', '2024-10-08 18:00:20', 30, 0, 0, 40),
+(48, 31, 1, '5662', '2024-10-08 18:02:03', 30, 0, 0, 0),
+(49, 47, 1, '7839', '2024-10-10 03:32:32', 30, 0, 0, 42),
+(50, 47, 2, '5664', '2024-10-16 15:12:25', 30, 0, 0, 42),
+(51, 32, 11, '5664', '2024-10-16 15:12:25', 30, 0, 0, 42),
+(52, 31, 1, '5664', '2024-10-16 15:12:25', 30, 0, 0, 42),
+(53, 21, 4, '5664', '2024-10-16 15:12:25', 30, 0, 0, 42),
+(54, 19, 6, '5664', '2024-10-16 15:12:25', 30, 0, 0, 42);
 
 -- --------------------------------------------------------
 
@@ -256,7 +334,8 @@ INSERT INTO `tbl_giohang` (`giohang_id`, `tensanpham`, `sanpham_id`, `giasanpham
 (68, 'Máy giặc Shark', 27, '75000000', 'm8.jpg', 7, 42),
 (69, 'Laptop A15', 25, '6600000', 'mk6.jpg', 1, 42),
 (70, 'Máy giặc Shark', 27, '75000000', 'm8.jpg', 1, 43),
-(71, 'Laptop A15', 25, '6600000', 'mk6.jpg', 5, 43);
+(71, 'Laptop A15', 25, '6600000', 'mk6.jpg', 5, 43),
+(125, 'Laptop Acer Aspire Lite 14 51M', 47, '10490000', 'lap5.jpg', 1, 32);
 
 -- --------------------------------------------------------
 
@@ -292,7 +371,8 @@ INSERT INTO `tbl_khachhang` (`khachhang_id`, `name`, `phone`, `address`, `note`,
 (28, 'Hoa', '0932023992', '123/123', 'dasdasdads', 'hoa@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0),
 (29, 'tuấn', '0973312095', 'Hà Nội', '', 'tuan@gmail.com', 'b47f366edb4b79de8038b4b9ce14b9c5', 0),
 (30, 'dung', '', 'hp', 'ok boy', 'doibatcong2003@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(31, 'Nguyễn Tiến Dũng', '0962988318', 'hp', 'ok boy', 'doibatcong2003@gmail.com', '202cb962ac59075b964b07152d234b70', 1);
+(31, 'Nguyễn Tiến Dũng', '0962988318', 'hp', 'ok boy', 'doibatcong2003@gmail.com', '202cb962ac59075b964b07152d234b70', 1),
+(32, 'Nguyen Dungprovip', '0962988314', 'hai phong', '', 'doibatcong2001@gmail.com', '202cb962ac59075b964b07152d234b70', 0);
 
 -- --------------------------------------------------------
 
@@ -303,10 +383,11 @@ INSERT INTO `tbl_khachhang` (`khachhang_id`, `name`, `phone`, `address`, `note`,
 CREATE TABLE `tbl_sanpham` (
   `sanpham_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
+  `brands_id` int(11) DEFAULT NULL,
   `sanpham_name` varchar(255) NOT NULL,
   `sanpham_chitiet` text NOT NULL,
   `sanpham_mota` text NOT NULL,
-  `sanpham_gia` varchar(100) NOT NULL,
+  `sanpham_gia` decimal(10,0) NOT NULL,
   `sanpham_giakhuyenmai` varchar(100) NOT NULL,
   `sanpham_active` int(11) NOT NULL,
   `sanpham_hot` int(11) NOT NULL,
@@ -318,23 +399,24 @@ CREATE TABLE `tbl_sanpham` (
 -- Đang đổ dữ liệu cho bảng `tbl_sanpham`
 --
 
-INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham_chitiet`, `sanpham_mota`, `sanpham_gia`, `sanpham_giakhuyenmai`, `sanpham_active`, `sanpham_hot`, `sanpham_soluong`, `sanpham_image`) VALUES
-(17, 1, 'Laptop Asus Vivobook Go 15', 'asus', 'Laptop', '12590000', '5500000', 0, 0, 10, 'asus1.jpg'),
-(18, 1, 'Laptop HP 15s', 'hp', 'Laptop', '9900000', '4500000', 0, 0, 1, 'hp15s1.png'),
-(19, 1, 'Laptop MSI Gaming GF63 ', 'msi', 'Laptop', '17900000', '4800000', 0, 0, 1, 'MSI1.jpg'),
-(20, 1, 'Laptop Dell Inspiron 15 3520 i5', 'dell', 'Laptop', '15000000', '14000000', 0, 0, 10, 'dell1.jpg'),
-(21, 5, 'Smart Tivi 4K Sony KD-55X75K ', 'sony', 'TV', '14390000', '14000000', 0, 0, 10, 'sony1.jpg'),
-(22, 5, 'Smart Tivi Samsung Neo QLED85 inch', 'samsung', 'TV', '130000000', '17000000', 0, 0, 5, 'tvsamsung1.1.jpg'),
-(23, 5, 'OLED Tivi 4K LG 55 inch 55A2PSA ThinQ AI', 'lg', 'TV', '19000000', '25000000', 0, 0, 10, 'tvlg1.jpg'),
-(24, 4, 'Điện thoại iPhone 15 Pro Max 512GB', 'apple', 'phone', '35000000', '5500000', 0, 0, 10, 'ip151.jpg'),
-(25, 4, 'Điện thoại Samsung Galaxy Z Flip6', 'samsung', 'phone', '26990000', '5300000', 0, 0, 10, 'zlip1.jpg'),
-(26, 4, 'Điện thoại Xiaomi Redmi Note 13 Pro', 'xiaomi', 'phone', '6190000', '99000000', 0, 0, 10, 'xiaomi1.jpg'),
-(27, 3, 'Máy giặt Toshiba Inverter', 'toshiba', 'mg', '7500000', '63000000', 0, 0, 10, 'toshiba1.png'),
-(28, 3, 'Máy giặt Aqua 8.5Kg AQW-FR85GT.S', 'aqua', 'mg', '4590000', '4580000', 0, 0, 11, 'aqua1.png'),
-(29, 3, 'Máy giặt lồng ngang Panasonic Inverter 10,5Kg NA-V105FR1BV', 'panasonic', 'mg', '15900000', '14900000', 0, 0, 11, 'panasonic1.jpg'),
-(30, 2, 'Tủ lạnh Toshiba Inverter 180L GR-RT234WE-PMV(52)', 'toshiba', 'tl', '5190000', '4190000', 0, 0, 11, 'tltoshiba1.png'),
-(31, 2, 'Tủ lạnh Samsung Inverter 488L 4 cửa RF48A4000B4/SV', 'samsung', 'tl', '19900000', '18900000', 0, 0, 11, 'tlsamsung1.png'),
-(32, 2, 'Tủ lạnh Panasonic Inverter 255L NR-BV281BVKV', 'panasonic', 'tl', '12390000', '10390000', 0, 0, 11, 'tlpanasonic1.jpg');
+INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `brands_id`, `sanpham_name`, `sanpham_chitiet`, `sanpham_mota`, `sanpham_gia`, `sanpham_giakhuyenmai`, `sanpham_active`, `sanpham_hot`, `sanpham_soluong`, `sanpham_image`) VALUES
+(17, 1, 2, 'Laptop Asus Vivobook Go 15', 'asus', 'Laptop', 12590000, '5500000', 0, 0, 10, 'asus1.jpg'),
+(18, 1, 3, 'Laptop HP 15s', 'hp', 'Laptop', 9900000, '4500000', 0, 0, 1, 'hp15s1.png'),
+(19, 1, 7, 'Laptop MSI Gaming GF63 ', 'msi', 'Laptop', 17900000, '4800000', 0, 0, 1, 'MSI1.jpg'),
+(20, 1, 8, 'Laptop Dell Inspiron 15 3520 i5', 'dell', 'Laptop', 15000000, '14000000', 0, 0, 10, 'dell1.jpg'),
+(21, 5, 6, 'Smart Tivi 4K Sony KD-55X75K ', 'sony', 'TV', 14390000, '14000000', 0, 0, 10, 'sony1.jpg'),
+(22, 5, 6, 'Smart Tivi Samsung Neo QLED85 inch', 'samsung', 'TV', 130000000, '17000000', 0, 0, 5, 'tvsamsung1.1.jpg'),
+(23, 5, 13, 'OLED Tivi 4K LG 55 inch 55A2PSA ThinQ AI', 'lg', 'TV', 19000000, '25000000', 0, 0, 10, 'tvlg1.jpg'),
+(24, 4, 4, 'Điện thoại iPhone 15 Pro Max 512GB', 'apple', 'phone', 35000000, '5500000', 0, 0, 10, 'ip151.jpg'),
+(25, 4, 9, 'Điện thoại Samsung Galaxy Z Flip6', 'samsung', 'phone', 26990000, '5300000', 0, 0, 10, 'zlip1.jpg'),
+(26, 4, 12, 'Điện thoại Xiaomi Redmi Note 13 Pro', 'xiaomi', 'phone', 6190000, '99000000', 0, 0, 10, 'xiaomi1.jpg'),
+(27, 3, 12, 'Máy giặt Toshiba Inverter', 'toshiba', 'mg', 7500000, '63000000', 0, 0, 10, 'toshiba1.png'),
+(28, 3, 22, 'Máy giặt Aqua 8.5Kg AQW-FR85GT.S', 'aqua', 'mg', 4590000, '4580000', 0, 0, 11, 'aqua1.png'),
+(29, 3, 9, 'Máy giặt lồng ngang Panasonic Inverter 10,5Kg NA-V105FR1BV', 'panasonic', 'mg', 15900000, '14900000', 0, 0, 11, 'panasonic1.jpg'),
+(30, 2, 23, 'Tủ lạnh Toshiba Inverter 180L GR-RT234WE-PMV(52)', 'toshiba', 'tl', 5190000, '4190000', 0, 0, 11, 'tltoshiba1.png'),
+(31, 2, 11, 'Tủ lạnh Samsung Inverter 488L 4 cửa RF48A4000B4/SV', 'samsung', 'tl', 19900000, '18900000', 0, 0, 11, 'tlsamsung1.png'),
+(32, 2, 10, 'Tủ lạnh Panasonic Inverter 255L NR-BV281BVKV', 'panasonic', 'tl', 12390000, '10390000', 0, 0, 11, 'tlpanasonic1.jpg'),
+(47, 1, 5, 'Laptop Acer Aspire Lite 14 51M', 'fd', 'dfd', 10490000, '9.490.000', 0, 0, 100, 'lap5.jpg');
 
 -- --------------------------------------------------------
 
@@ -625,7 +707,9 @@ INSERT INTO `tbl_sanpham_images` (`image_id`, `sanpham_id`, `image_url`, `thutu`
 (71, 22, 'tvsamsung1.1.jpg', NULL),
 (72, 22, 'tvsamsung1.2.jpg', NULL),
 (73, 22, 'tvsamsung1.3.jpg', NULL),
-(74, 22, 'tvsamsung1.4.jpg', NULL);
+(74, 22, 'tvsamsung1.4.jpg', NULL),
+(166, 47, 'lap3.jpg', 1),
+(167, 47, 'lap5.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -693,14 +777,9 @@ CREATE TABLE `tbl_tiketdiscount` (
 --
 
 INSERT INTO `tbl_tiketdiscount` (`id`, `name`, `phanTramGiam`, `ngayBatDau`, `ngayKetThuc`, `soLuong`) VALUES
-(35, 'mùa thu', 10.00, '2024-09-13 22:49:00', '2024-09-30 22:49:00', 81),
-(36, 'kkk', 99.00, '2024-08-15 23:27:00', '2024-08-31 23:28:00', 0),
-(37, 'kkl', 50.00, '2024-08-22 12:49:00', '2024-08-31 12:49:00', 0),
-(38, 'uuu', 100.00, '2024-08-23 12:50:00', '2024-08-31 12:50:00', 0),
-(39, 'ii', 200.00, '2024-08-17 13:12:00', '2024-08-31 13:12:00', 0),
-(40, 'lkkkk', 90.00, '2024-08-24 13:34:00', '2024-08-31 13:35:00', 5),
+(40, 'lkkkk', 90.00, '2024-08-24 13:34:00', '2024-12-31 13:35:00', 0),
 (41, 'longk', 77.00, '2024-08-24 13:47:00', '2024-08-31 13:47:00', 50),
-(42, 'mùa thu 2024', 50.00, '2024-09-28 14:00:00', '2024-09-30 14:00:00', 2000),
+(42, 'mùa thu 2024', 50.00, '2024-09-28 14:00:00', '2025-01-28 14:00:00', 1998),
 (43, 'mùa thu 2024', 50.00, '2024-09-28 14:00:00', '2024-09-30 14:00:00', 1996);
 
 -- --------------------------------------------------------
@@ -733,7 +812,14 @@ INSERT INTO `tbl_usevoucher` (`id`, `khachhang_id`, `voucher_id`, `ngaySudung`) 
 (62, 30, 0, '2024-10-08 23:13:58'),
 (63, 30, 0, '2024-10-08 23:15:30'),
 (64, 30, 0, '2024-10-08 23:25:16'),
-(65, 30, 0, '2024-10-08 23:28:38');
+(65, 30, 0, '2024-10-08 23:28:38'),
+(66, 30, 0, '2024-10-09 00:54:21'),
+(67, 30, 0, '2024-10-09 00:56:04'),
+(68, 30, 0, '2024-10-09 00:57:55'),
+(69, 30, 0, '2024-10-09 00:59:27'),
+(70, 30, 0, '2024-10-09 01:00:20'),
+(71, 30, 0, '2024-10-10 10:32:32'),
+(72, 30, 0, '2024-10-16 22:12:25');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -750,6 +836,12 @@ ALTER TABLE `tbl_admin`
 --
 ALTER TABLE `tbl_baiviet`
   ADD PRIMARY KEY (`baiviet_id`);
+
+--
+-- Chỉ mục cho bảng `tbl_brands`
+--
+ALTER TABLE `tbl_brands`
+  ADD PRIMARY KEY (`brands_id`);
 
 --
 -- Chỉ mục cho bảng `tbl_category`
@@ -863,6 +955,12 @@ ALTER TABLE `tbl_baiviet`
   MODIFY `baiviet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_brands`
+--
+ALTER TABLE `tbl_brands`
+  MODIFY `brands_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_category`
 --
 ALTER TABLE `tbl_category`
@@ -878,31 +976,31 @@ ALTER TABLE `tbl_danhmuc_tin`
 -- AUTO_INCREMENT cho bảng `tbl_donhang`
 --
 ALTER TABLE `tbl_donhang`
-  MODIFY `donhang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `donhang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_giaodich`
 --
 ALTER TABLE `tbl_giaodich`
-  MODIFY `giaodich_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `giaodich_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_khachhang`
 --
 ALTER TABLE `tbl_khachhang`
-  MODIFY `khachhang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `khachhang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  MODIFY `sanpham_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `sanpham_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_sanpham_chitietcauhinh`
@@ -926,7 +1024,7 @@ ALTER TABLE `tbl_sanpham_gioithieu`
 -- AUTO_INCREMENT cho bảng `tbl_sanpham_images`
 --
 ALTER TABLE `tbl_sanpham_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_slider`
@@ -944,7 +1042,7 @@ ALTER TABLE `tbl_tiketdiscount`
 -- AUTO_INCREMENT cho bảng `tbl_usevoucher`
 --
 ALTER TABLE `tbl_usevoucher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
