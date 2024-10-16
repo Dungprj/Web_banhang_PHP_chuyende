@@ -286,7 +286,15 @@ if (isset($_GET['xoa'])) {
             <div class="col-md-8">
                 <h4>Liệt kê sản phẩm</h4>
                 <?php
-				$sql_select_sp = mysqli_query($con,"SELECT * FROM tbl_sanpham,tbl_category WHERE tbl_sanpham.category_id=tbl_category.category_id  ORDER BY tbl_sanpham.sanpham_id DESC"); 
+				$sql_select_sp = mysqli_query($con, "
+                SELECT tbl_sanpham.*, 
+                       tbl_category.category_name, 
+                       tbl_brands.brands_name
+                FROM tbl_sanpham
+                INNER JOIN tbl_category ON tbl_sanpham.category_id = tbl_category.category_id
+                INNER JOIN tbl_brands ON tbl_sanpham.brands_id = tbl_brands.brands_id
+                ORDER BY tbl_sanpham.sanpham_id DESC
+             ");
 				?>
                 <table class="table table-bordered ">
                     <tr>
@@ -297,6 +305,7 @@ if (isset($_GET['xoa'])) {
                         <th>Hình ảnh mô tả </th>
                         <th>Số lượng</th>
                         <th>Danh mục</th>
+                        <th>hãng</th>
                         <th>Giá sản phẩm</th>
                         <th>Giá khuyến mãi</th>
                         <th>Quản lý</th>
@@ -343,6 +352,7 @@ if (isset($_GET['xoa'])) {
 
                         <td><?php echo $row_sp['sanpham_soluong'] ?></td>
                         <td><?php echo $row_sp['category_name'] ?></td>
+                        <td><?php echo $row_sp['brands_name']?></td>
                         <td><?php echo number_format($row_sp['sanpham_gia']).' vnđ' ?></td>
                         <td><?php echo $row_sp['sanpham_giakhuyenmai'] == null ? "" :$row_sp['sanpham_giakhuyenmai'].' vnđ' ?>
                         </td>
