@@ -14,6 +14,7 @@ $khachhang_id = "";
 if(isset($_SESSION['khachhang_id']))
 {
 	$khachhang_id = $_SESSION['khachhang_id'];
+	
 }
 
 if(!isset($_SESSION['khachhang_id']))
@@ -24,7 +25,6 @@ if(!isset($_SESSION['khachhang_id']))
 	window.location.href ='index.php?quanly=dangnhap';
 	
 	</script>";
-	
 	die();
 }
 
@@ -80,8 +80,6 @@ if(!isset($_SESSION['khachhang_id']))
 
  
  }elseif(isset($_POST['thanhtoan'])){
-
-
  	$name = $_POST['name'];
  	$phone = $_POST['phone'];
  	$email = $_POST['email'];
