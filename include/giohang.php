@@ -28,6 +28,10 @@ if(!isset($_SESSION['khachhang_id']))
 	die();
 }
 
+
+
+
+
  if(isset($_POST['themgiohang'])){
 	
  	$tensanpham = $_POST['tensanpham'];
@@ -53,7 +57,33 @@ if(!isset($_SESSION['khachhang_id']))
  	// 	header('Location:index.php?quanly=chitietsp&id='.$sanpham_id);	
  	// }
 
- }elseif(isset($_POST['capnhatsoluong'])){
+ }elseif(isset($_POST['muangay']) && $_POST['muangay'] == '1')
+ {
+	$tensanpham = $_POST['tensanpham'];
+ 	$sanpham_id = $_POST['sanpham_id'];
+ 	$hinhanh = $_POST['hinhanh'];
+ 	$gia = $_POST['giasanpham'];
+ 	$soluong = 1;
+	
+ 	$sql_select_giohang = mysqli_query($con,"SELECT * FROM tbl_giohang WHERE sanpham_id='$sanpham_id'  and khachhang_id = '$khachhang_id'");
+ 	$count = mysqli_num_rows($sql_select_giohang);
+ 	if($count>0){
+ 		$row_sanpham = mysqli_fetch_array($sql_select_giohang);
+ 		$soluong = $row_sanpham['soluong'] + 1;
+ 		$sql_giohang = "UPDATE tbl_giohang SET soluong='$soluong' WHERE sanpham_id='$sanpham_id' and khachhang_id = '$khachhang_id'";
+ 	}else{
+ 		$soluong = $soluong;
+		
+ 		$sql_giohang = "INSERT INTO tbl_giohang(tensanpham,sanpham_id,giasanpham,hinhanh,soluong,khachhang_id) values ('$tensanpham','$sanpham_id','$gia','$hinhanh','$soluong','$khachhang_id')";
+
+ 	}
+ 	$insert_row = mysqli_query($con,$sql_giohang);
+ 	// if($insert_row==0){
+ 	// 	header('Location:index.php?quanly=chitietsp&id='.$sanpham_id);	
+ 	// }
+
+ }
+ elseif(isset($_POST['capnhatsoluong'])){
  	
  	for($i=0;$i<count($_POST['product_id']);$i++){
  		$sanpham_id = $_POST['product_id'][$i];
@@ -295,12 +325,14 @@ if(!isset($_SESSION['khachhang_id']))
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Sản phẩm</td>
-							<td colspan="3" class="description">Tên</td>
+							<td  colspan="2"  class="image">Sản phẩm</td>
+							<td colspan="2" class="description">Tên</td>
 							<td class="price">Giá</td>
-							<td class="quantity">Số lượng</td>
+							<td colspan="2" class="quantity">Số lượng</td>
 							<td class="total">Giá tổng</td>
-							<td></td>
+							<td>Xóa</td>
+							
+
 						</tr>
 					</thead>
 					<tbody>
@@ -320,7 +352,7 @@ if(!isset($_SESSION['khachhang_id']))
 						?>
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="uploads/<?php echo $row_fetch_giohang['hinhanh'] ?>" style="width:100%; max-width:150px; " alt=""></a>
+								<a href=""><img src="uploads/<?php echo $row_fetch_giohang['hinhanh'] ?>" style="width:100%; max-width:100px; " alt=""></a>
 							</td>
 						
 							<td colspan="3" class="cart_description">
@@ -332,11 +364,15 @@ if(!isset($_SESSION['khachhang_id']))
 							<td class="cart_price">
 								<p><?php echo $row_fetch_giohang['giasanpham'].'vnđ' ?></p>
 							</td>
-							<td class="cart_quantity">
+							<td colspan="2" class="cart_quantity">
 								<div class="cart_quantity_button">
 									<a class="cart_quantity_up" href="" data-id="<?php echo $row_fetch_giohang['sanpham_id']; ?>"> + </a>
 									<input class="cart_quantity_input" type="text" name="soluong[]"  id="soluong_<?php echo $row_fetch_giohang['sanpham_id']; ?>" value="<?php echo $row_fetch_giohang['soluong'] ?>" autocomplete="off" size="2">
 									<a class="cart_quantity_down" href=""   data-id="<?php echo $row_fetch_giohang['sanpham_id']; ?>"> - </a>
+									
+										
+									<button type="submit" class="btn btn-danger " name="capnhatsoluong" style="width:35px;height:auto;"><i class="fa-regular fa-pen-to-square"></i></button>
+									
 								</div>
 							</td>
 							<td class="cart_total">
@@ -354,17 +390,17 @@ if(!isset($_SESSION['khachhang_id']))
 							} 
 							?>
 							<tr>
-								<td colspan="6" style="text-align: right;">Voucher: </td>
+								<td colspan="7" style="text-align: right;">Voucher: </td>
 								<td><p id="open" style="color:orange; cursor:pointer;">Chọn mã giảm giá</p></td>
 							</tr>
 							
 							<tr>
-								<td colspan="7" style="text-align: right;">Tổng tiền : <?php echo number_format($total).' vnđ' ?></td>
+								<td colspan="8" style="text-align: right;">Tổng tiền : <?php echo number_format($total).' vnđ' ?></td>
 
 							</tr>
 							<tr>
 								
-								<td colspan="6" style="text-align: right;">
+								<td colspan="7" style="text-align: right;">
 								<?php 
 								
 								if($isapply_voucher!= null && $isSuccess_Applyvoucher == false)
@@ -384,11 +420,11 @@ if(!isset($_SESSION['khachhang_id']))
 
 							</tr>
 							<tr>
-								<td colspan="7" style="text-align: right;">Thành tiền : <?php echo number_format($thanhtien-$sotiengiam).' vnđ'  ?></td>
+								<td colspan="8" style="text-align: right;">Thành tiền : <?php echo number_format($thanhtien-$sotiengiam).' vnđ'  ?></td>
 
 							</tr>
 							<tr>
-								<td colspan="5"><input type="submit" class="btn btn-success" value="Cập nhật giỏ hàng" name="capnhatsoluong">
+								<td >
 								<?php 
 								$sql_giohang_select = mysqli_query($con,"SELECT * FROM tbl_giohang where khachhang_id = $khachhang_id");
 								$count_giohang_select = mysqli_num_rows($sql_giohang_select);
@@ -402,14 +438,29 @@ if(!isset($_SESSION['khachhang_id']))
 								<?php 
 							}
 								?>
-								<input type="submit" class="btn btn-primary" value="Thanh toán giỏ hàng" name="thanhtoandangnhap">
+								
 		
 								<?php
 								} 
 								?>
-								
+
 								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+
+								<td></td>
+								<td></td>
+								
+
 							
+								
+
+								<td style="text-align: right;">
+								<input type="submit" class="btn btn-primary"   value="Thanh toán giỏ hàng" name="thanhtoandangnhap">
+
+								</td>
 							</tr>
 						
 
