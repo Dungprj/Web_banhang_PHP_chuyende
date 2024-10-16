@@ -48,7 +48,7 @@ $maxPrice = $row_price_range['maxPrice'];
                                 <?php 
 
             // Lấy danh sách các hãng sản phẩm từ cột 'sanpham_chitiet'
-            $sql_brands = "SELECT DISTINCT sanpham_chitiet FROM tbl_sanpham";
+            $sql_brands = "SELECT * FROM tbl_brands ORDER BY brands_id DESC";
             $query_brands = mysqli_query($con, $sql_brands);
 
             if (mysqli_num_rows($query_brands) === 0): ?>
@@ -56,11 +56,8 @@ $maxPrice = $row_price_range['maxPrice'];
                                 <?php else: 
                 while ($row_brands = mysqli_fetch_assoc($query_brands)): ?>
                                 <li>
-                                    <a href="?quanly=hang&sanpham_chitiet=<?php echo urlencode($row_brands['sanpham_chitiet']); ?>"
-                                        class="brand-link">
-                                        <span class="pull-right"></span>
-                                        <?php echo htmlspecialchars($row_brands['sanpham_chitiet']); ?>
-                                    </a>
+                                <a href="?quanly=hang&id=<?php echo $row_brands['brands_id'] ?>">
+                                <?php echo $row_brands['brands_name'] ?></a>
                                 </li>
                                 <?php endwhile; 
             endif; ?>

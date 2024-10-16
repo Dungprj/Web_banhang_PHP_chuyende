@@ -21,17 +21,12 @@
                             <input type="hidden" name="giasanpham" value="<?php echo $product['sanpham_gia'] ?>" />
                             <input type="hidden" name="hinhanh" value="<?php echo $product['sanpham_image'] ?>" />
                             <input type="hidden" name="soluong" value="1" />			
-    
-                            <input  type="submit" name="themgiohang" value="Thêm giỏ hàng" class="btn btn-default add-to-cart" />
-    
-
-    
                         </fieldset>
+                    <input  type="submit" name="themgiohang" value="Thêm giỏ hàng" class="btn btn-default add-to-cart" />
+
                     </form>
                 </div>
-                <button class="btn btn-primary"
-                    onclick="event.stopPropagation(); changeProduct(<?php echo $product['sanpham_id']; ?>)">Xem chi
-                    tiết</button>
+                
             </div>
         </div>
 
