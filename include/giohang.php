@@ -18,7 +18,13 @@ if(isset($_SESSION['khachhang_id']))
 
 if(!isset($_SESSION['khachhang_id']))
 {
-	echo "<script>alert('chưa đăng nhập !')</script>";
+	echo "<script>
+	alert('chưa đăng nhập !');
+
+	window.location.href ='index.php?quanly=dangnhap';
+	
+	</script>";
+	
 	die();
 }
 
@@ -57,7 +63,7 @@ if(!isset($_SESSION['khachhang_id']))
  		}else{
  			$sql_update = mysqli_query($con,"UPDATE tbl_giohang SET soluong='$soluong' WHERE sanpham_id='$sanpham_id' and khachhang_id = '$khachhang_id'");
  		}
- 	}
+ 	}	
 
  }elseif(isset($_GET['xoa'])){
  	$id = $_GET['xoa'];
@@ -310,6 +316,7 @@ if(!isset($_SESSION['khachhang_id']))
 							$i++;
 							$tongTienGlobal = $total;
 							$thanhtien = $total;
+				
 							
 						?>
 						<tr>
@@ -349,7 +356,20 @@ if(!isset($_SESSION['khachhang_id']))
 							?>
 							<tr>
 								<td colspan="6" style="text-align: right;">Voucher: </td>
-								<td><p id="open" style="color:orange; cursor:pointer;">Chọn mã giảm giá</p></td>
+								<?php
+								if (isset($_POST['select_voucher']) && isset($_POST['id_voucher'])) {
+									?>
+								
+								<td><p id="open" style="color:orange; cursor:pointer;"><?php echo $row_fetch_magiamgia["name"]?></p> </td>
+								
+								<?php
+								}
+								else{
+								?>
+								<td><p id="open" style="color:orange; cursor:pointer;">Chọn mã giảm giá</p> </td>
+								<?php
+							}
+								?>
 							</tr>
 							
 							<tr>
@@ -373,6 +393,7 @@ if(!isset($_SESSION['khachhang_id']))
 								
 								?> 
 								</td>
+							
 
 								<td colspan="1" style="text-align: right;"> -- <?php echo number_format($sotiengiam).' vnđ' ?></td>
 
@@ -597,4 +618,3 @@ document.querySelectorAll('.cart_quantity_down').forEach(function(button) {
 
 
 </script>
-
