@@ -69,11 +69,16 @@ if(isset($_POST["logout"]))
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
+							<ul class="nav navbar-nav collapse navbar-collapse">
 								<?php
 								if(isset($_SESSION['dangnhap_home'])){
 									?>
-								<li><a href="index.php?quanly=taikhoan"><i class="fa fa-user"></i> <?php echo $_SESSION['dangnhap_home'] ?></a></li>
+								<li class="dropdown"><a href=""><i class="fa fa-user"></i> <?php echo $_SESSION['dangnhap_home'] ?></a>
+									<ul class="sub-menu">
+										<li><a href="index.php?quanly=taikhoan">Thông tin tài khoản</a></li>
+										<li><a href="index.php?quanly=xemdonhang&khachhang=<?php echo $_SESSION['khachhang_id'] ?>">Đơn hàng của bạn</a></li>
+									</ul>
+								</li>
 								<?php
 								}
 								?>
