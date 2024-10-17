@@ -15,10 +15,7 @@
 				$_SESSION['dangnhap_home'] = $row_dangnhap['name'];
 				$_SESSION['khachhang_id'] = $row_dangnhap['khachhang_id'];
 				
-				echo '<script>
-        alert("Đăng nhập thành công");
-        window.location.href = "index.php";
-    </script>';
+				echo "<script>window.location.href='" . $_SERVER['PHP_SELF'] . "';</script>";
 			}else{
 				echo '<script>alert("Tài khoản mật khẩu sai")</script>';
 			}
