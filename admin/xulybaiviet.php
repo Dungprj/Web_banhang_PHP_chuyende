@@ -8,7 +8,7 @@
 		$danhmuc = $_POST['danhmuc'];
 		$chitiet = $_POST['chitiet'];
 		$mota = $_POST['mota'];
-		$path = '../images/';
+		$path = '../uploads/';
 		
 		$hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
 		$sql_insert_product = mysqli_query($con,"INSERT INTO tbl_baiviet(tenbaiviet,tomtat,noidung,danhmuctin_id,baiviet_image) values ('$tenbaiviet','$mota','$chitiet','$danhmuc','$hinhanh')");
@@ -22,7 +22,7 @@
 		$danhmuc = $_POST['danhmuc'];
 		$chitiet = $_POST['chitiet'];
 		$mota = $_POST['mota'];
-		$path = '../shop/';
+		$path = '../uploads/';
 		if($hinhanh==''){
 			$sql_update_image = "UPDATE tbl_baiviet SET tenbaiviet='$tenbaiviet',noidung='$chitiet',tomtat='$mota',danhmuctin_id='$danhmuc' WHERE baiviet_id='$id_update'";
 		}else{
