@@ -6,7 +6,7 @@ if (isset($_GET['minPrice']) ||isset($_GET['maxPrice'])  ) {
    $minPrice = $_GET['minPrice'];
    $maxPrice = $_GET['maxPrice'];
     // Truy vấn SQL tìm kiếm sản phẩm theo tên
-    $sql_locgia = "SELECT * FROM tbl_sanpham WHERE sanpham_gia >='$minPrice' and sanpham_gia <='$maxPrice'";	
+    $sql_locgia = "SELECT * FROM tbl_sanpham WHERE sanpham_giakhuyenmai>='$minPrice' and sanpham_giakhuyenmai <='$maxPrice'";	
    
     $result_products = mysqli_query($con, $sql_locgia);
 
@@ -32,7 +32,7 @@ if (isset($_GET['minPrice']) ||isset($_GET['maxPrice'])  ) {
 }
 
 
-    $sql_locgia_count =  mysqli_query($con,"SELECT count(*) as sl FROM tbl_sanpham WHERE sanpham_gia >='$minPrice' and sanpham_gia <='$maxPrice'");	
+    $sql_locgia_count =  mysqli_query($con,"SELECT count(*) as sl FROM tbl_sanpham WHERE sanpham_giakhuyenmai >='$minPrice' and sanpham_giakhuyenmai <='$maxPrice'");	
     
 
 	//phan trang bat dau
@@ -63,7 +63,7 @@ if (isset($_GET['minPrice']) ||isset($_GET['maxPrice'])  ) {
 	
 
 	// Truy vấn để lấy danh sách sản phẩm cho trang hiện tại
-	$query_products = "SELECT *  FROM tbl_sanpham WHERE sanpham_gia >='$minPrice' and sanpham_gia <='$maxPrice' ORDER BY sanpham_gia ASC LIMIT $offset, $products_per_page ";		
+	$query_products = "SELECT *  FROM tbl_sanpham WHERE sanpham_giakhuyenmai >='$minPrice' and sanpham_giakhuyenmai <='$maxPrice' ORDER BY sanpham_gia ASC LIMIT $offset, $products_per_page ";		
 	$result_products_default = $con->query($query_products);
 	$result_products = $result_products_default;
 

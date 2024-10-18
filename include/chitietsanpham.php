@@ -86,7 +86,9 @@ while ($row = $result_warranty->fetch_assoc()) {
                     <form action="index.php?quanly=giohang" method="post">
 
                         <span>
-                            <span><?php echo number_format($product['sanpham_gia']); ?><sup>đ</sup></span>
+                            
+                            <span><?php echo number_format($product['sanpham_giakhuyenmai'])?> VNĐ</span>
+                            <del><?php echo number_format($product['sanpham_gia'])?> VNĐ</del>
                             <label>Số lượng:</label>
                             <div class="quantity-controls">
                                 <button type="button" class="quantity-btn" id="decrease-btn"
@@ -99,8 +101,8 @@ while ($row = $result_warranty->fetch_assoc()) {
                                 value="<?php echo intval($product['sanpham_id']); ?>">
                             <input type="hidden" name="tensanpham"
                                 value="<?php echo htmlspecialchars($product['sanpham_name']); ?>">
-                            <input type="hidden" name="giasanpham"
-                                value="<?php echo intval($product['sanpham_gia']); ?>">
+                            <input type="hidden" name="sanpham_giakhuyenmai"
+                                value="<?php echo intval($product['sanpham_giakhuyenmai']); ?>">
                             <input type="hidden" name="hinhanh" value="<?php echo htmlspecialchars($first_image); ?>">
 
                             <button type="submit" name="themgiohang" class="btn btn-default add-to-cart">
@@ -202,19 +204,30 @@ while ($row = $result_warranty->fetch_assoc()) {
 </div>
 
 <?php 
-$sanpham_mota = $con->real_escape_string($product['sanpham_mota']);
-$query = "SELECT * FROM tbl_sanpham WHERE sanpham_mota = '$sanpham_mota' AND sanpham_id != '$product_id' LIMIT 4";
+$product_id = $con->real_escape_string($product_id);
+$query = "SELECT tbl_sanpham.*, tbl_category.category_name
+        FROM tbl_sanpham
+        JOIN tbl_category ON tbl_sanpham.category_id = tbl_category.category_id
+        WHERE tbl_sanpham.sanpham_id = '$product_id'";
 $result = $con->query($query);
-$result_products = $result;
+$product = $result->fetch_assoc();
+$category_name = $product['category_name'];
+$related_query = "SELECT tbl_sanpham.*
+                FROM tbl_sanpham
+                JOIN tbl_category ON tbl_sanpham.category_id = tbl_category.category_id
+                WHERE tbl_category.category_name = '$category_name'
+                AND tbl_sanpham.sanpham_id != '$product_id' LIMIT 3";
+$related_result = $con->query($related_query);
+$result_products = $related_result;
 ?>
 
 <div class="related-products">
-
     <?php
-  
-   $title = "Sản phẩm liên quan";
-   include "danhsachsanpham.php";
-   ?>
+    $title = "Sản phẩm liên quan"; ?>
+    
+    <?php include "danhsachsanpham.php";?>                    
+    
+    
 </div>
 
 <script src="js/product.js"></script>

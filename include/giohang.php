@@ -37,7 +37,7 @@ if(!isset($_SESSION['khachhang_id']))
  	$tensanpham = $_POST['tensanpham'];
  	$sanpham_id = $_POST['sanpham_id'];
  	$hinhanh = $_POST['hinhanh'];
- 	$gia = $_POST['giasanpham'];
+ 	$gia = $_POST['sanpham_giakhuyenmai'];
  	$soluong = $_POST['soluong'];	
 	
  	$sql_select_giohang = mysqli_query($con,"SELECT * FROM tbl_giohang WHERE sanpham_id='$sanpham_id'  and khachhang_id = '$khachhang_id'");
@@ -62,7 +62,7 @@ if(!isset($_SESSION['khachhang_id']))
 	$tensanpham = $_POST['tensanpham'];
  	$sanpham_id = $_POST['sanpham_id'];
  	$hinhanh = $_POST['hinhanh'];
- 	$gia = $_POST['giasanpham'];
+ 	$gia = $_POST['sanpham_giakhuyenmai'];
  	$soluong = 1;
 	
  	$sql_select_giohang = mysqli_query($con,"SELECT * FROM tbl_giohang WHERE sanpham_id='$sanpham_id'  and khachhang_id = '$khachhang_id'");
@@ -74,7 +74,7 @@ if(!isset($_SESSION['khachhang_id']))
  	}else{
  		$soluong = $soluong;
 		
- 		$sql_giohang = "INSERT INTO tbl_giohang(tensanpham,sanpham_id,giasanpham,hinhanh,soluong,khachhang_id) values ('$tensanpham','$sanpham_id','$gia','$hinhanh','$soluong','$khachhang_id')";
+ 		$sql_giohang = "INSERT INTO tbl_giohang(tensanpham,sanpham_id,sanphamgia,hinhanh,soluong,khachhang_id) values ('$tensanpham','$sanpham_id','$gia','$hinhanh','$soluong','$khachhang_id')";
 
  	}
  	$insert_row = mysqli_query($con,$sql_giohang);
@@ -360,7 +360,7 @@ if(!isset($_SESSION['khachhang_id']))
                                 
 							</td>
 							<td class="cart_price">
-								<p><?php echo $row_fetch_giohang['giasanpham'].'vnđ' ?></p>
+								<p><?php echo number_format($row_fetch_giohang['giasanpham']).'vnđ' ?></p>
 							</td>
 							<td colspan="2" class="cart_quantity">
 								<div class="cart_quantity_button">

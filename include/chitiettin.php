@@ -43,7 +43,8 @@
 				<div class="col-lg-12 welcome-left">
 					<h5><?php echo $row_baiviet['tenbaiviet'] ?></h5>
 					<h4 class="my-sm-3 my-2"><?php echo $row_baiviet['tomtat'] ?></h4>
-					<p><?php echo $row_baiviet['noidung'] ?></p>
+					<p><?php echo nl2br(htmlspecialchars($row_baiviet['noidung'])); ?></p>
+
 				</div>
 			</div><br>
 			

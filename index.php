@@ -77,7 +77,7 @@
 		
 	}elseif($tam=='lienhe') {
 
-		include('contact.html');
+		include('include/contact.html');
 		
 	}elseif ($tam=='timkiem') {
 		include "include/_partialpanellert.php";

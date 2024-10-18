@@ -6,7 +6,7 @@ $sql_list = mysqli_query($con, "SELECT * FROM `tbl_sanpham` ORDER BY `sanpham_id
 
 
 
-$sql_price_range = mysqli_query($con, "SELECT MIN(sanpham_gia) AS minPrice, MAX(sanpham_gia) AS maxPrice  FROM tbl_sanpham");
+$sql_price_range = mysqli_query($con, "SELECT MIN(sanpham_giakhuyenmai) AS minPrice, MAX(sanpham_giakhuyenmai) AS maxPrice  FROM tbl_sanpham");
 $row_price_range = mysqli_fetch_assoc($sql_price_range);
 $minPrice = $row_price_range['minPrice'];
 $maxPrice = $row_price_range['maxPrice'];
@@ -73,10 +73,10 @@ $maxPrice = $row_price_range['maxPrice'];
                       type="text"
                       class="span2 loctheogia"
                       value=""
-                      data-slider-min="<?php echo $minPrice; ?>"
-                      data-slider-max="<?php echo $maxPrice; ?>"
+                      data-slider-min="<?php echo 0; ?>"
+                      data-slider-max="<?php echo $maxPrice +  5000000; ?>"
                       data-slider-step="100000"
-                      data-slider-value="[<?php echo $minPrice + 20000000 ; ?>, <?php echo $maxPrice - 20000000; ?>]"
+                      data-slider-value="[<?php echo $minPrice ; ?>, <?php echo $maxPrice; ?>]"
                       id="sl2"
                   /><br />
                   <b class="pull-left" style="position: absolute;left: -1%;"><?php echo number_format($minPrice); ?> VND</b>
@@ -106,8 +106,8 @@ $(document).ready(function() {
     var sliderValue = $("#sl2").val();
     
     // Tách thành khoảng giá
-    var minPrice_slider = sliderValue.split(',')[0] == "" ? <?php echo $minPrice+20000000?> :sliderValue.split(',')[0];// Giá trị nhỏ nhất
-    var maxPrice_slider = sliderValue.split(',')[1] == undefined ? <?php echo $maxPrice-20000000?> :sliderValue.split(',')[1]; // Giá trị lớn nhất
+    var minPrice_slider = sliderValue.split(',')[0] == "" ? <?php echo $minPrice?> :sliderValue.split(',')[0];// Giá trị nhỏ nhất
+    var maxPrice_slider = sliderValue.split(',')[1] == undefined ? <?php echo $maxPrice?> :sliderValue.split(',')[1]; // Giá trị lớn nhất
 
     
     
