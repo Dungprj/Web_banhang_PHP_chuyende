@@ -16,13 +16,7 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="index.php" class="active">Trang chủ</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        
-										<li><a href="cart.html">Giỏ hàng</a></li> 
-										<li><a href="login.html">Đăng nhập</a></li> 
-                                    </ul>
-                                </li> 
+							
 								<li class="dropdown">
                                     <a href="#">Tin tức <i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
